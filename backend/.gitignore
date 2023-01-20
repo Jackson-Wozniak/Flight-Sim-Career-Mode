@@ -1,0 +1,8 @@
+.vscode/
+.idea/
+.mvn/
+src/main/resources/application.properties
+backend.iml
+HELP.md
+mvnw
+mvnw.cmd
