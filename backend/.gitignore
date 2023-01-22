@@ -2,6 +2,7 @@
 .idea/
 .mvn/
 src/main/resources/application.properties
+target/
 backend.iml
 HELP.md
 mvnw

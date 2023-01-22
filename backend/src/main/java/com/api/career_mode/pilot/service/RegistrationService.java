@@ -2,6 +2,7 @@ package com.api.career_mode.pilot.service;
 
 import com.api.career_mode.pilot.entity.ConfirmationToken;
 import com.api.career_mode.pilot.entity.Pilot;
+import com.api.career_mode.pilot.exception.PilotCreationException;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,9 @@ public class RegistrationService {
     private final ConfirmationTokenService confirmationTokenService;
 
     public String register(String username, String password) {
+        if(username.isEmpty() || password.isEmpty()){
+            throw new PilotCreationException("Registration fields must contain valid characters");
+        }
         return pilotService.signUpPilot(
                 new Pilot(
                         username,
