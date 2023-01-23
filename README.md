@@ -11,8 +11,8 @@
     <a href="https://jackson-wozniak.github.io/MSFS2020-Random-Flight-Generator/"><strong>Explore The Application»</strong></a>
     </br>
     <p>
-      <img src="https://img.shields.io/github/commit-activity/m/Jackson-Wozniak/MSFS-Career-Mode" alt="license" />
-      <img src="https://img.shields.io/tokei/lines/github/Jackson-Wozniak/MSFS-Career-Mode" alt="license" />
+      <img src="https://img.shields.io/github/commit-activity/m/Jackson-Wozniak/Flight-Sim-Career-Mode" alt="license" />
+      <img src="https://img.shields.io/tokei/lines/github/Jackson-Wozniak/Flight-Sim-Career-Mode" alt="license" />
       <img src="https://img.shields.io/github/issues/Jackson-Wozniak/Flight-Sim-Career-Mode" alt="license" />
       <img src="https://img.shields.io/github/license/Jackson-Wozniak/Flight-Sim-Career-Mode" alt="license" />
       <img src="https://img.shields.io/github/languages/count/Jackson-Wozniak/Flight-Sim-Career-Mode?color=brightgreen" alt="license" />
