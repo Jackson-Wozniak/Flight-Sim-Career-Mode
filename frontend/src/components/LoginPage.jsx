@@ -27,8 +27,8 @@ function LoginPage() {
         <div className="login-page-container">
             <form className="login-form" onSubmit={(e) => attemptLogin(e)}>
                 <div className="user-icon-image-container">
-                    <i className="fa fa-regular"></i>
-                    <i className="fa fa-light fa-user fa-5x user-icon-image"></i>
+                    <i class="fa fa-solid fa-user fa-5x user-icon-image"></i>
+                    
                 </div>
                 <input type="email" onChange={(e) => setUsername(e.target.value)}
                     className="login-prompts" placeholder="Email" required 
