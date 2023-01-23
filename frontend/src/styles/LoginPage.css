@@ -1,0 +1,95 @@
+:root {
+	--dark: #374151;
+	--darker: #1F2937;
+	--darkest: #111827;
+	--purple: #8B5CF6;
+	--light: #EEE;
+    --green: #3bd170;
+    --dark-background : #222222;
+    --light-backround : #666666;
+    --blue : #4D84EB;
+}
+
+.login-page-container{
+    width: 100vw;
+    height : 100vh;
+
+    /*image credit: https://www.pexels.com/photo/flying-airplane-above-the-clouds-during-sunset-12167069/*/
+    background-image: url('../images/clouds.jpeg');
+    opacity: 1;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.login-form {
+    min-width : 28%;
+    max-width: 38%;
+    min-height : 50%;
+    border-radius: 25px;
+    padding : 0px 20px 10px 20px;
+    margin : 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: 1s;
+    color: var(--light);
+    background-color: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+}
+
+.user-icon-image-container{
+    margin : 20px;
+    width : 100px;
+    height : 100px;
+    border : 2px solid var(--light);
+    background-color: var(--blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.user-icon-image{
+    
+}
+
+.login-prompts{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Verdana', monospace, sans-serif;
+    font-size: 1.1rem;
+    width : 80%;
+    height: 50px;
+    border-radius: 60px;
+    box-shadow: inset 0px 0px 25px 0px #888;
+    border: none;
+    outline: none;
+    background-color: var(--light);
+    color : var(--darkest);
+    margin : 20px;
+}
+
+#login-button{
+    margin : 20px;
+    padding : 5px;
+    border-radius: 60px;
+    background-color: var(--blue);
+    color : var(--light);
+    border : none;
+    width : 80%;
+    height: 50px;
+    font-family: 'Verdana', sans-serif;
+    font-size: 1.2rem;
+}
