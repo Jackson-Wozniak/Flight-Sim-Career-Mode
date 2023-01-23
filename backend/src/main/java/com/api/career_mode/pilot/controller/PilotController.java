@@ -29,6 +29,11 @@ public class PilotController {
     @Autowired
     private final ConfirmationTokenService confirmationTokenService;
 
+    @GetMapping(value = "/count")
+    public long getTotalAmountOfPilots(){
+        return pilotService.findPilotCount();
+    }
+
     @GetMapping(value = "/register")
     public ResponseEntity<?> registerNewPilot(@RequestParam("username") String username,
                                                    @RequestParam("password") String password){

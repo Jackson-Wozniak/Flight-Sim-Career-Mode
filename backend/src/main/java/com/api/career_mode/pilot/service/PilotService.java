@@ -52,4 +52,8 @@ public class PilotService implements UserDetailsService {
     public void enablePilot(String username) {
         pilotRepository.enablePilot(username);
     }
+
+    public long findPilotCount(){
+        return pilotRepository.count();
+    }
 }

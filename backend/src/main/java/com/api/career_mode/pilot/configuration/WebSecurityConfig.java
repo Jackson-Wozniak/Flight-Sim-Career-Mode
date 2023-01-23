@@ -29,6 +29,8 @@ public class WebSecurityConfig {
         http
                 .csrf().disable()
                 .authorizeHttpRequests()
+                .requestMatchers("/api/v*/pilot/count")
+                .permitAll()
                 .requestMatchers("/api/v*/**")
                 .permitAll()
                 .anyRequest()
