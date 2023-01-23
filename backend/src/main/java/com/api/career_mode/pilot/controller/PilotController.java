@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(value = "/api/v1/pilot")
 @AllArgsConstructor
+@CrossOrigin("http://localhost:3000")
 public class PilotController {
 
     @Autowired
@@ -51,7 +52,7 @@ public class PilotController {
 
             confirmationTokenService.saveConfirmationToken(confirmationToken);
 
-            return ResponseEntity.ok().body(confirmationToken.getToken());
+            return ResponseEntity.ok(confirmationToken.getToken());
         }catch (Exception ex){
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
         }
