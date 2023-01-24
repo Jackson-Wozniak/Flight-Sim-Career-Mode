@@ -38,7 +38,7 @@ public class ConfirmationTokenService {
 
     public void setConfirmedAt(String token) {
         confirmationTokenRepository.updateConfirmedAt(
-                token, LocalDateTime.now());
+                token, LocalDateTime.now(), LocalDateTime.now().plusMinutes(60));
     }
 
     public ConfirmationToken createConfirmationToken(Pilot pilot){
