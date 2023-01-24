@@ -18,7 +18,8 @@ function LoginPage(props) {
         setLoading(true);
         try{
             let tokenRes = await loginAndObtainJwtKey(username, password);
-            navigate('/pilot-home', {state : {jwtToken : tokenRes}});
+            localStorage.setItem("jwtToken", tokenRes);
+            navigate('/pilot-home');
         }catch (ex){
             setErrorWithLogin(true);
         }

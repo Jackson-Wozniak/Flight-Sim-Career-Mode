@@ -4,7 +4,9 @@
 
     /*credit: https://wallpaper.dog/large/20560991.jpg*/
     background-image: url('../images/plane.jpg');
-    opacity: 1;
+    opacity: .9;
+    /* -webkit-filter: grayscale(100%);
+    filter: grayscale(100%); */
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
