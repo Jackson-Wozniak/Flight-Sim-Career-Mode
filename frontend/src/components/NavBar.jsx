@@ -1,7 +1,7 @@
 import '../styles/NavBar.css';
 import { useNavigate } from 'react-router-dom';
 
-function NavBar() {
+function NavBar(props) {
     const navigate = useNavigate();
 
     function navigateToPath(path){
@@ -9,7 +9,7 @@ function NavBar() {
     }
 
     return ( 
-        <div className="nav-bar-container">
+        <div className={props.fixed ? "nav-bar-container-fixed" : "nav-bar-container-free"}>
             <div className="left-nav-bar">
                 <button onClick={() => navigateToPath("/")} className="nav-bar-links">Home</button>
                 <button onClick={() => navigateToPath("/pilot-home")} className="nav-bar-links">Your Pilot Homepage</button>

@@ -13,7 +13,7 @@
 
 .login-page-container{
     width: 100vw;
-    height : 100vh;
+    min-height : 100vh;
 
     /*image credit: https://www.pexels.com/photo/flying-airplane-above-the-clouds-during-sunset-12167069/*/
     background-image: url('../images/clouds.jpeg');
@@ -24,6 +24,7 @@
     background-size: cover;
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;

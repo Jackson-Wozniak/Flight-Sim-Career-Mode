@@ -42,7 +42,7 @@ function LoginPage(props) {
 
     return (  
         <div className="login-page-container">
-            <NavBar />
+            <NavBar fixed={true}/>
             {errorPopup}
             <form className="login-form" onSubmit={(e) => attemptLogin(e)}>
                 <div className="user-icon-image-container">

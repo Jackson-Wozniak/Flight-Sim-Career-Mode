@@ -4,6 +4,7 @@ import { findTotalPilotCount } from '../utils/ApiCalls';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavBar from './NavBar';
+import pilotIcon from '../images/pilot_icon.png';
 
 function HomePage() {
     
@@ -28,9 +29,11 @@ function HomePage() {
 
     return ( 
         <div className="home-page-container">
-            <NavBar />
+            <NavBar fixed={false}/>
             <div className="homepage-info-card">
-                <h2>Choose Your Path...</h2>
+                
+                <h2 id="homepage-header">Choose Your Path...</h2>
+                <img src={pilotIcon} alt="" className="pilot-icon-homepage"/>
                 <h4>and join {totalPilotCount} virtual pilots worldwide</h4>
 
                 <button onClick={() => navigateToPath("/login")}>Login</button>
@@ -41,9 +44,9 @@ function HomePage() {
                     <h2>Local License</h2>
                     <hr />
                     <p>
-                        Begin as an unknown, and complete contracted cargo and passenger
+                        Begin as an unknown pilot, and complete contracted cargo and passenger
                         flights as you increase your reputation and make money. Buy new planes
-                        and improve your operations as you climb the ranks of private piloting
+                        and improve your operations as you climb the ranks of private piloting!
                     </p>
                 </div>
                 <div className="homepage-info-card">

@@ -1,6 +1,6 @@
 .home-page-container{
     width: 100vw;
-    height : 100vh;
+    min-height : 100vh;
 
     /*credit: https://wallpaper.dog/large/20560991.jpg*/
     background-image: url('../images/plane.jpg');
@@ -44,6 +44,18 @@
     background-color: rgba(255,255,255,0.1);
     border: 1px solid rgba(255,255,255,0.1);
     backdrop-filter: blur(10px);
+}
+
+#homepage-header{
+    color : var(--light);
+}
+
+.pilot-icon-homepage{
+    width : 30%;
+    height : auto;
+    border : 2px solid var(--blue);
+    border-radius: 50%;
+    padding : 5px;
 }
 
 .homepage-info-card hr{
