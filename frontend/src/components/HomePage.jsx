@@ -2,10 +2,12 @@ import { useEffect } from 'react';
 import '../styles/HomePage.css';
 import { findTotalPilotCount } from '../utils/ApiCalls';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function HomePage() {
     
     const [totalPilotCount, setTotalPilotCount] = useState("");
+    const navigate = useNavigate();
 
     useEffect(() => {
         async function updateTotalPilotCount(){
@@ -19,14 +21,18 @@ function HomePage() {
         updateTotalPilotCount();
     }, []);
 
+    function navigateToPath(path){
+        navigate(path);
+    }
+
     return ( 
         <div className="home-page-container">
             <div className="homepage-info-card">
                 <h2>Choose Your Path...</h2>
                 <h4>and join {totalPilotCount} virtual pilots worldwide</h4>
 
-                <button>Login</button>
-                <button>Or Sign Up</button>
+                <button onClick={() => navigateToPath("/login")}>Login</button>
+                <button onClick={() => navigateToPath("/sign-up")}>Or Sign Up</button>
             </div>
             <div className="homepage-info-card-container">
                 <div className="homepage-info-card">

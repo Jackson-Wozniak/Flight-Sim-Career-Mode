@@ -9,6 +9,7 @@ function LoginPage(props) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
+    const [errorWithLogin, setErrorWithLogin] = useState(false);
     const navigate = useNavigate();
 
     async function attemptLogin(e){
@@ -18,7 +19,7 @@ function LoginPage(props) {
             let tokenRes = await loginAndObtainJwtKey(username, password);
             navigate('/pilot-home', {state : {jwtToken : tokenRes}});
         }catch (ex){
-            alert(ex.message);
+            setErrorWithLogin(true);
         }
         setLoading(false);
     }
@@ -29,8 +30,17 @@ function LoginPage(props) {
         );
     }
 
+    let errorPopup;
+    if(errorWithLogin){
+        errorPopup = <button className="error-popup" onClick={() => setErrorWithLogin(false)}>
+		                <p>There was an error in your login attempt</p>
+                        <p className="close-error-popup">x</p>
+	                </button>
+    }
+
     return (  
         <div className="login-page-container">
+            {errorPopup}
             <form className="login-form" onSubmit={(e) => attemptLogin(e)}>
                 <div className="user-icon-image-container">
                     <i className="fa fa-solid fa-user fa-5x user-icon-image"></i>
