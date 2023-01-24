@@ -1,11 +1,29 @@
+import { useEffect } from 'react';
 import '../styles/HomePage.css';
+import { findTotalPilotCount } from '../utils/ApiCalls';
+import { useState } from 'react';
 
 function HomePage() {
+    
+    const [totalPilotCount, setTotalPilotCount] = useState("");
+
+    useEffect(() => {
+        async function updateTotalPilotCount(){
+            try{
+                let pilotCount = await findTotalPilotCount();
+                setTotalPilotCount(pilotCount);
+            }catch (ex) {
+                setTotalPilotCount("");
+            }
+        }
+        updateTotalPilotCount();
+    }, []);
+
     return ( 
         <div className="home-page-container">
             <div className="homepage-info-card">
                 <h2>Choose Your Path...</h2>
-                <h4>and join {} virtual pilots worldwide</h4>
+                <h4>and join {totalPilotCount} virtual pilots worldwide</h4>
 
                 <button>Login</button>
                 <button>Or Sign Up</button>
