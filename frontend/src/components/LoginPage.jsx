@@ -4,6 +4,7 @@ import 'font-awesome/css/font-awesome.min.css';
 import { loginAndObtainJwtKey } from '../utils/ApiCalls';
 import LoadingScreen from './LoadingScreen';
 import { useNavigate } from 'react-router-dom';
+import NavBar from './NavBar';
 
 function LoginPage(props) {
     const [username, setUsername] = useState("");
@@ -40,6 +41,7 @@ function LoginPage(props) {
 
     return (  
         <div className="login-page-container">
+            <NavBar />
             {errorPopup}
             <form className="login-form" onSubmit={(e) => attemptLogin(e)}>
                 <div className="user-icon-image-container">

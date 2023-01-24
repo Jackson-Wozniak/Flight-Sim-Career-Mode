@@ -3,6 +3,7 @@ import '../styles/HomePage.css';
 import { findTotalPilotCount } from '../utils/ApiCalls';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import NavBar from './NavBar';
 
 function HomePage() {
     
@@ -27,6 +28,7 @@ function HomePage() {
 
     return ( 
         <div className="home-page-container">
+            <NavBar />
             <div className="homepage-info-card">
                 <h2>Choose Your Path...</h2>
                 <h4>and join {totalPilotCount} virtual pilots worldwide</h4>
