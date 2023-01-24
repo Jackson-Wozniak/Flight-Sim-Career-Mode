@@ -38,7 +38,8 @@ public class PilotController {
     public ResponseEntity<?> registerNewPilot(@RequestParam("username") String username,
                                                    @RequestParam("password") String password){
         try{
-            return ResponseEntity.ok(registrationService.register(username, password));
+            String jwtToken = registrationService.register(username, password);
+            return ResponseEntity.ok(jwtToken);
         }catch(Exception ex){
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
         }

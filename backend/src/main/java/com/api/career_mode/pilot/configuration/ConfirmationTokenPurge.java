@@ -11,6 +11,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 
+/*
+Purge all tokens at midnight. Ensures that confirmation tokens in database are active/relevant
+ */
 @Configuration
 @EnableScheduling
 @AllArgsConstructor
