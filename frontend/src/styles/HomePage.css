@@ -1,3 +1,49 @@
-.home-page{
-    
+.home-page-container{
+    width: 100vw;
+    height : 100vh;
+
+    /*credit: https://wallpaper.dog/large/20560991.jpg*/
+    background-image: url('../images/plane.jpg');
+    opacity: 1;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-position : 5%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.homepage-info-card-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.homepage-info-card {
+    width : 30%;
+    height : auto;
+    border-radius: 25px;
+    padding : 0px 20px 10px 20px;
+    margin : 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: 1s;
+    color: var(--light);
+    background-color: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+}
+
+.homepage-info-card hr{
+    width : 80%;
 }
