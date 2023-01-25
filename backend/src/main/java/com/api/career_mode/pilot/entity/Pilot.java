@@ -24,8 +24,14 @@ public class Pilot implements UserDetails {
     @Id
     private String username;
 
-    @Column(name = "password")
+    @Column(name = "password", nullable = false)
     private String password;
+
+    @Column(name = "pilot_name", columnDefinition = "varchar(30) default ''", nullable = false)
+    private String name;
+
+    @Column(name = "home_country", columnDefinition = "varchar(25) default 'United States'", nullable = false)
+    private String homeCountry;
 
     @OneToOne(mappedBy="pilot",cascade=CascadeType.ALL)
     private LocalLicense localLicense;
@@ -35,9 +41,11 @@ public class Pilot implements UserDetails {
     private final Boolean locked = false;
     private final Boolean enabled = true;
 
-    public Pilot(String username, String password){
+    public Pilot(String username, String password, String name, String homeCountry){
         this.username = username;
         this.password = password;
+        this.name = name;
+        this.homeCountry = homeCountry;
         this.localLicense = new LocalLicense(this);
     }
 

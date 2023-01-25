@@ -2,6 +2,7 @@ package com.api.career_mode.pilot.controller;
 
 import com.api.career_mode.pilot.entity.ConfirmationToken;
 import com.api.career_mode.pilot.entity.Pilot;
+import com.api.career_mode.pilot.payload.PilotCreatorRequest;
 import com.api.career_mode.pilot.service.ConfirmationTokenService;
 import com.api.career_mode.pilot.service.PilotService;
 import com.api.career_mode.pilot.service.RegistrationService;
@@ -34,11 +35,10 @@ public class PilotController {
         return pilotService.findPilotCount();
     }
 
-    @GetMapping(value = "/register")
-    public ResponseEntity<?> registerNewPilot(@RequestParam("username") String username,
-                                                   @RequestParam("password") String password){
+    @PostMapping(value = "/register")
+    public ResponseEntity<?> registerNewPilot(@RequestBody PilotCreatorRequest pilotCreatorRequest){
         try{
-            String jwtToken = registrationService.register(username, password);
+            String jwtToken = registrationService.register(pilotCreatorRequest);
             return ResponseEntity.ok(jwtToken);
         }catch(Exception ex){
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
