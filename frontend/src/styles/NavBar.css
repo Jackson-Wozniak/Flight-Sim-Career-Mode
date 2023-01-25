@@ -71,9 +71,11 @@
 
 .nav-bar-links:hover{
     border : 1px solid var(--light);
-    color : rgb(139, 253, 253);
+    color : var(--dark);
+    border : none;
+}
+
+.nav-bar-login{
+    background-color: var(--blue);
     border-radius: 10px;
-    background: none;
-    margin : 0px 10px 0px 10px;
-    padding : 10px;
 }

@@ -15,7 +15,7 @@ function NavBar(props) {
                 <button onClick={() => navigateToPath("/pilot-home")} className="nav-bar-links">Your Pilot Homepage</button>
             </div>
             <div className="right-nav-bar">
-                <button onClick={() => navigateToPath("/login")} className="nav-bar-links">Login</button>
+                <button onClick={() => navigateToPath("/login")} className="nav-bar-links nav-bar-login">Login</button>
                 <button onClick={() => navigateToPath("/sign-up")} className="nav-bar-links">Sign Up</button>
             </div>
         </div>

@@ -19,6 +19,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    font-family: 'Monaco', Geneva, Tahoma, sans-serif;
 }
 
 .homepage-info-card-container{
@@ -44,10 +45,12 @@
     background-color: rgba(255,255,255,0.1);
     border: 1px solid rgba(255,255,255,0.1);
     backdrop-filter: blur(10px);
+    font-family: 'Monaco', Geneva, Tahoma, sans-serif;
 }
 
 #homepage-header{
     color : var(--light);
+    font-family: 'Monaco', Geneva, Tahoma, sans-serif;
 }
 
 .pilot-icon-homepage{
@@ -60,4 +63,56 @@
 
 .homepage-info-card hr{
     width : 80%;
+    margin : 5px;
+    height : 1px;
+    background-color: var(--blue);
+    color : var(--blue);
+    border : 1px solid var(--blue);
+}
+
+.homepage-info-card h2{
+    margin : 15px 0px 5px 0px;
+    font-family: 'Monaco', Geneva, Tahoma, sans-serif;
+}
+
+#homepage-login-b{
+    width : 40%;
+    padding : 10px 5px 10px 5px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin : 10px;
+    background-color: var(--blue);
+    color : var(--light);
+    border : none;
+    border-radius: 10px;
+}
+
+#homepage-login-b:hover{
+    background-color: rgb(58, 58, 237);
+}
+
+#homepage-sign-up-b{
+    width : 30%;
+    padding : 10px 5px 10px 5px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin : 10px;
+    background-color: var(--light);
+    color : var(--darkest);
+    border : none;
+    border-radius: 10px;
+}
+
+#homepage-sign-up-b:hover{
+    background-color: lightgray;
+}
+
+@media only screen and (max-width : 500px){
+    .homepage-info-card-container{
+        flex-direction: column;
+    }
+
+    .homepage-info-card{
+        width : 70vw;
+    }
 }
