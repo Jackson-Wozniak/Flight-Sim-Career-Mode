@@ -35,7 +35,7 @@ function HomePage() {
                 
                 <h2 id="homepage-header">Choose Your Path...</h2>
                 <img src={pilotIcon} alt="" className="pilot-icon-homepage"/>
-                <h4>and join {totalPilotCount !== "" ? "+" : ""} virtual pilots worldwide!</h4>
+                <h4>and join {totalPilotCount !== "" ? totalPilotCount + "+" : ""} virtual pilots worldwide!</h4>
 
                 <button onClick={() => navigateToPath("/login")} id="homepage-login-b">Login</button>
                 <button onClick={() => navigateToPath("/sign-up")} id="homepage-sign-up-b">Or Sign Up</button>
