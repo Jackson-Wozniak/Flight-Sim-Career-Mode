@@ -1,0 +1,132 @@
+.sign-up-page-container {
+    min-height: 100vh;
+    width : 100vw;
+    
+    background: rgb(63,124,251);
+    background: radial-gradient(circle, rgba(63,124,251,1) 0%, rgba(75,70,252,1) 100%);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.sign-up-page-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height : 95vh;
+}
+
+.pilot-sign-up-form{
+    min-width : 28%;
+    max-width: 38%;
+    min-height : 50%;
+    border-radius: 25px;
+    padding : 0px 20px 10px 20px;
+    margin : 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: 1s;
+    color: var(--light);
+    background-color: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.pilot-sign-up-form h2{
+    margin : 10px;
+    font-family: 'Verdana', monospace, sans-serif;
+}
+
+.pilot-sign-up-form hr{
+    width : 70%;
+    margin : 5px;
+    color : gold;
+    background-color: gold;
+    border-color: gold;
+}
+
+.pilot-sign-up-icon{
+    width : 30%;
+    height : auto;
+    border : 2px solid gold;
+    padding : 5px;
+    border-radius: 50%;
+    margin : 10px;
+}
+
+.pilot-sign-up-prompt-container{
+    display: flex;
+    height : auto;
+    width : 90%;
+    margin : 10px 0px 10px 0px;
+}
+
+.pilot-sign-up-form-prompts{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Verdana', monospace, sans-serif;
+    font-size: 1.1rem;
+    width : 80%;
+    height: 50px;
+    border-radius: 60px;
+    box-shadow: inset 0px 0px 25px 0px rgb(168, 168, 168);
+    border: none;
+    outline: none;
+    background-color: var(--light);
+    color : var(--darkest);
+    margin : 5px;
+}
+
+.pilot-sign-up-form-submit{
+    margin : 20px;
+    padding : 5px;
+    border-radius: 60px;
+    background-color: gold;
+    color : var(--darkest);
+    border : none;
+    width : 60%;
+    height: 50px;
+    font-family: 'Verdana', monospace, sans-serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Error Popup */
+.error-popup{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    position : absolute;
+    top : 5%;
+    left : 50%;
+    transform: translate(-50%, -50%);
+    border : none;
+    border-radius: 10px;
+    background-color: lightcoral;
+    color : crimson;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 24px;
+    padding : 5px;
+}
+
+.error-popup * {
+    margin : 5px;
+}
+
+.close-error-popup{
+    height : 15px;
+    width : 15px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border : 1px solid crimson;
+    border-radius: 5px;
+}
