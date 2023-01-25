@@ -22,11 +22,15 @@ function PilotHomepage() {
         }
     }, [jwtToken, navigate]);
 
+    function navigateToPath(path){
+        navigate(path);
+    }
+
     return (  
         <div className="pilot-home-page-container">
             <NavBar fixed={true}/>
             <div className="pilot-homepage-card-container">
-                <div className="pilot-homepage-info-card">
+                <button className="pilot-homepage-info-card" onClick={() => navigateToPath("/private-pilot")}>
                     <img src={propPlaneImg} alt="" className="pilot-home-page-images"/>
                     <h1>Become a private pilot</h1>
                     <hr />
@@ -36,8 +40,8 @@ function PilotHomepage() {
                         more money as your reputation grows. Don't forget to set aside some money
                         to upgrade your hangar!
                     </p>
-                </div>
-                <div className="pilot-homepage-info-card">
+                </button>
+                <button className="pilot-homepage-info-card" onClick={() => navigateToPath("/airline-manager")}>
                     <img src={airlinerImg} alt="" className="pilot-home-page-images"/>
                     <h1>Manage your own airline</h1>
                     <hr />
@@ -46,7 +50,7 @@ function PilotHomepage() {
                         Set aside money to upgrade your fleet, so that you can grow your buisness,
                         and fly more routes concurrently!
                     </p>
-                </div>
+                </button>
             </div>
         </div>
     );

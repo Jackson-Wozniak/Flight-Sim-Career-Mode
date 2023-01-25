@@ -40,6 +40,7 @@
 .airplane {
   width: 250px;
   animation: airplane 1s ease infinite alternate;
+  rotate : 5deg;
 }
 
 @keyframes airplane {
