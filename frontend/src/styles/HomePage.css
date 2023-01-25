@@ -1,7 +1,6 @@
 .home-page-container{
-    width: 100vw;
+    width : 100vw;
     min-height : 100vh;
-
     /*credit: https://wallpaper.dog/large/20560991.jpg*/
     background-image: url('../images/plane.jpg');
     opacity: .9;
@@ -13,6 +12,11 @@
     background-size: cover;
     background-repeat:no-repeat;
     background-position : 5%;
+}
+
+.home-page-container-content{
+    width: 100vw;
+    min-height : 94vh;
 
     display: flex;
     flex-direction: column;

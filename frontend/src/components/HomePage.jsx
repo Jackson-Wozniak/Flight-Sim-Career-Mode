@@ -30,6 +30,7 @@ function HomePage() {
     return ( 
         <div className="home-page-container">
             <NavBar fixed={false}/>
+        <div className="home-page-container-content">    
             <div className="homepage-info-card">
                 
                 <h2 id="homepage-header">Choose Your Path...</h2>
@@ -60,6 +61,7 @@ function HomePage() {
                     </p>
                 </div>
             </div>
+        </div>    
         </div>
      );
 }
