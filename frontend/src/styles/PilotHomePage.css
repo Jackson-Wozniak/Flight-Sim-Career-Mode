@@ -1,0 +1,88 @@
+:root{
+    --light-background : rgba(244, 244, 244, 0.19);
+}
+
+.pilot-home-page-container{
+    min-height : 100vh;
+    width : 100vw;
+    /*credit: https://commons.wikimedia.org/wiki/File:The_earth_at_night.jpg*/
+    background-image: url('../images/world_map.jpg');
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.pilot-homepage-card-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.pilot-homepage-info-card {
+    width : 35vw;
+    height : auto;
+    padding : 10px;
+    border-radius: 25px;
+    margin : 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--light);
+    background-color: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    font-family: 'Monaco', Geneva, Tahoma, sans-serif;
+    transition: 1.5s;
+}
+
+.pilot-homepage-info-card hr{
+    width : 80%;
+    margin : 0;
+    color : crimson;
+    background-color: crimson;
+    border-color: crimson;
+}
+
+.pilot-homepage-info-card .pilot-path-prompts{
+    width : 85%;
+    margin : 10px;
+    padding : 0;
+}
+
+.pilot-homepage-info-card h1, .pilot-path-prompts{
+    width : 100%;
+    margin : 10px;
+    padding : 0;
+}
+
+.pilot-homepage-info-card:hover{
+    box-shadow: var(--light-background) 0px 10px 20px, var(--light-background) 0px 6px 6px;
+}
+
+.pilot-home-page-images{
+    width : 80%;
+    height : auto;
+    padding : 0;
+    margin : 10px;
+    border : none;
+    border-radius: 10px;
+    box-shadow: rgb(30, 33, 37) 0px 20px 30px -10px;
+}
+
+@media only screen and (max-width : 600px) {
+    .pilot-homepage-info-card {
+        width : 80vw;
+        margin : 80px 10px 10px 10px;
+    }
+
+    .pilot-homepage-card-container{
+        flex-direction: column;
+    }
+}
