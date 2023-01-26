@@ -54,15 +54,15 @@ function SignUpPage() {
                     <hr />
                     <div className="pilot-sign-up-prompt-container">
                         <input type="email" placeholder="Email" onChange={(e) => setUsername(e.target.value)}
-                            className="pilot-sign-up-form-prompts"/>
+                            className="pilot-sign-up-form-prompts" required/>
                         <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}
-                            className="pilot-sign-up-form-prompts"/>
+                            className="pilot-sign-up-form-prompts" required/>
                     </div>
                     <div className="pilot-sign-up-prompt-container">
                         <input type="text" placeholder="Pilot First Name" onChange={(e) => setPilotName(e.target.value)} 
-                            className="pilot-sign-up-form-prompts"/>
+                            className="pilot-sign-up-form-prompts" required/>
                         <input type="text" placeholder="Pilot Home Country" onChange={(e) => setHomeCountry(e.target.value)}
-                            className="pilot-sign-up-form-prompts"/>
+                            className="pilot-sign-up-form-prompts" requireds/>
                     </div>
 
                     <input type="submit" value="Register Pilot" className="pilot-sign-up-form-submit"/>
