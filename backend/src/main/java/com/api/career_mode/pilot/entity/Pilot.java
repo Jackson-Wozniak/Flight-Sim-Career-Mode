@@ -1,6 +1,6 @@
 package com.api.career_mode.pilot.entity;
 
-import com.api.career_mode.career_paths.local_license.LocalLicense;
+import com.api.career_mode.career_paths.private_pilot.PrivatePilot;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -34,7 +34,7 @@ public class Pilot implements UserDetails {
     private String homeCountry;
 
     @OneToOne(mappedBy="pilot",cascade=CascadeType.ALL)
-    private LocalLicense localLicense;
+    private PrivatePilot privatePilot;
 
     @Enumerated(EnumType.STRING)
     private final PilotRole pilotRole = PilotRole.USER;
@@ -46,7 +46,7 @@ public class Pilot implements UserDetails {
         this.password = password;
         this.name = name;
         this.homeCountry = homeCountry;
-        this.localLicense = new LocalLicense(this);
+        this.privatePilot = new PrivatePilot(this);
     }
 
     @Override

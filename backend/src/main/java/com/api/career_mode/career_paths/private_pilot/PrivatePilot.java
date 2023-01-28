@@ -1,4 +1,4 @@
-package com.api.career_mode.career_paths.local_license;
+package com.api.career_mode.career_paths.private_pilot;
 
 import com.api.career_mode.pilot.entity.Pilot;
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -12,7 +12,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class LocalLicense {
+public class PrivatePilot {
 
     @Id
     private String username;
@@ -23,7 +23,7 @@ public class LocalLicense {
     @JsonBackReference
     private Pilot pilot;
 
-    public LocalLicense(Pilot pilot) {
+    public PrivatePilot(Pilot pilot) {
         this.pilot = pilot;
     }
 }
