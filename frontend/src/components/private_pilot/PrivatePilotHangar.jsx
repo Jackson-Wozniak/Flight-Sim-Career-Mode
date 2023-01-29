@@ -1,6 +1,12 @@
-function PrivatePilotHangar() {
+function PrivatePilotHangar(props) {
     return (  
-        <div></div>
+        <div>
+            {props.pilotHangar.map((plane, index) => {
+                return  <div key={index}>
+                            {plane.name}
+                        </div>
+            })}
+        </div>
     );
 }
 

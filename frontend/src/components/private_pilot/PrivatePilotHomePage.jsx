@@ -5,22 +5,36 @@ import PrivatePilotAccount from './PrivatePilotAccount';
 import PrivatePilotStats from './PrivatePilotStats';
 import '../../styles/private_pilot/PrivatePilotHomePage.css';
 import NavBar from '../NavBar';
+import { useEffect } from "react";
+import { getTestPilotData } from "../../utils/PrivatePilotApi";
+import LoadingScreen from '../LoadingScreen';
 
 function PrivatePilotHomePage() {
-    
-    const [jwtToken, setJwtToken] = useState("");
-    const [pilot, setPilot] = useState();
 
-    return (  
-        <div className="private-pilot-homepage-container">
-            <NavBar fixed={false}/>
-            <div className="private-pilot-homepage-content-container">
-                <PrivatePilotFlights pilotFlightOffers={[]}/>
-                <PrivatePilotHangar />
-                <PrivatePilotAccount />
-                <PrivatePilotStats />
+    useEffect(() => {
+        let pilot = getTestPilotData();
+        setPilot(pilot);
+    }, []);
+    
+    // const [jwtToken, setJwtToken] = useState("");
+    const [pilot, setPilot] = useState(null);
+
+    if(pilot !== null){
+        return (  
+            <div className="private-pilot-homepage-container">
+                <NavBar fixed={false}/>
+                <div className="private-pilot-homepage-content-container">
+                    <PrivatePilotFlights pilotFlightOffers={pilot.inactiveFlights}/>
+                    <PrivatePilotHangar pilotHangar={pilot.hangar.planes}/>
+                    <PrivatePilotAccount />
+                    <PrivatePilotStats />
+                </div>
             </div>
-        </div>
+        );
+    }
+
+    return(
+        <LoadingScreen />
     );
 }
 
