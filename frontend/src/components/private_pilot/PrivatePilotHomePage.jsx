@@ -8,6 +8,8 @@ import NavBar from '../NavBar';
 import { useEffect } from "react";
 import { getTestPilotData } from "../../utils/PrivatePilotApi";
 import LoadingScreen from '../LoadingScreen';
+import StoryPopup from "./StoryPopup";
+import AssignedFlightDisplay from './AssignedFlightDisplay';
 
 function PrivatePilotHomePage() {
 
@@ -18,13 +20,38 @@ function PrivatePilotHomePage() {
     
     // const [jwtToken, setJwtToken] = useState("");
     const [pilot, setPilot] = useState(null);
+    const [showStory, setShowStory] = useState(false);
+    const [story, setStory] = useState("");
+
+    //called from PrivatePilotFlightsComponent & StoryPopup. ShowStory actives/deactives the story popup display
+    function activateStory(activated, storyChosen){
+        if(activated){
+            setStory(storyChosen);
+        }
+        setShowStory(activated);
+    }
+
+    //if user presses button in PrivatePilotFlights component to show story, display the given story in a centered div
+    let storyPopup;
+    if(showStory){
+        storyPopup = <StoryPopup story={story} activateStory={activateStory}/>
+    }else{
+        storyPopup = <div></div>
+    }
+
+    if(pilot !== null && pilot.isActiveFlight){
+        return (
+            <AssignedFlightDisplay pilot={pilot}/>
+        );
+    }
 
     if(pilot !== null){
         return (  
-            <div className="private-pilot-homepage-container">
+            <div className={"private-pilot-homepage-container " + (showStory ? "private-pilot-homepage-container-dimmed" : "")}>
                 <NavBar fixed={false}/>
+                {storyPopup}
                 <div className="private-pilot-homepage-content-container">
-                    <PrivatePilotFlights pilotFlightOffers={pilot.inactiveFlights}/>
+                    <PrivatePilotFlights pilotFlightOffers={pilot.inactiveFlights} activateStory={activateStory}/>
                     <PrivatePilotHangar pilotHangar={pilot.hangar.planes}/>
                     <PrivatePilotAccount />
                     <PrivatePilotStats />
