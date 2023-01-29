@@ -42,6 +42,12 @@
 
 #flight-container-seperator{
   width : 50%;
+  height : 3px;
+  color : var(--dark-accents);
+  background-color: var(--dark-accents);
+  border-color: var(--dark-accents);
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 .private-pilot-flight{
@@ -66,12 +72,13 @@
 }
 
 .flight-seperator{
-  margin : 20px;
-  width: 90%;
-  color : var(--light);
-  border-color: var(--light);
-  background-color: var(--light);
-  border-radius: 5px;
+  width : 70%;
+  height : 2px;
+  color : var(--dark-accents);
+  background-color: var(--dark-accents);
+  border-color: var(--dark-accents);
+  border-radius: 10px;
+  margin: 20px;
 }
 
 .private-pilot-flight-airport-info{
@@ -102,8 +109,8 @@
 .private-pilot-flight-info button{
   border : none;
   border-radius: 10px;
-  background-color: var(--light);
-  color : var(--dark);
+  background-color: var(--dark-accents);
+  color : var(--light);
   font-size: 1rem;
   font-weight: bold;
   min-height : 40px;
@@ -111,15 +118,14 @@
 
 .private-pilot-flight-info button:hover{
   background-color: var(--dark);
-  color : var(--light);
 }
 
 .assign-private-flight{
   width : 40%;
   border : none;
   border-radius: 10px;
-  background-color: var(--light);
-  color : var(--dark);
+  background-color: var(--dark-accents);
+  color : var(--light);
   font-size: 1.2rem;
   font-weight: bold;
   min-height : 40px;
@@ -128,9 +134,14 @@
 
 .assign-private-flight:hover{
   background-color: var(--dark);
-  color : var(--light);
 }
 
 .private-pilot-flight-info hr{
   width : 30%;
+  height : 2px;
+  color : var(--dark-accents);
+  background-color: var(--dark-accents);
+  border-color: var(--dark-accents);
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
