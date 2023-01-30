@@ -30,6 +30,11 @@ public class PlaneConfiguration {
         List<Plane> planes = PlaneCsvMapper.mapAllLinesToPlanes(planeLines);
 
         if(planes.size() != planeService.findPlaneRowCount()){
+            /*
+            Delete all planes in case there is mismatch with current DB planes
+                and desired planes
+             */
+            planeService.deleteAllPlanes();
             logger.info("Saving " + (planes.size() - planeService.findPlaneRowCount()) + " Planes");
             planeService.saveAllPlanes(planes);
         }

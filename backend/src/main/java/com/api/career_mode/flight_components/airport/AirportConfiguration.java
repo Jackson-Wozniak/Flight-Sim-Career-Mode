@@ -29,6 +29,11 @@ public class AirportConfiguration {
         List<Airport> airports = AirportCsvMapper.mapAllLinesToAirports(airportLines);
 
         if(airports.size() != airportService.findAirportRowCount()) {
+            /*
+            Delete all airports in case there is mismatch with current DB airports
+                and desired airports
+             */
+            airportService.deleteAllAirports();
             logger.info("Saving " + (airports.size() - airportService.findAirportRowCount()) + " airports");
             airportService.saveAllAirports(airports);
         }

@@ -3,6 +3,7 @@ package com.api.career_mode.flight_components.airport;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -15,6 +16,11 @@ public class AirportService {
 
     public void saveAllAirports(List<Airport> airports){
         airportRepository.saveAll(airports);
+    }
+
+    @Transactional
+    public void deleteAllAirports(){
+        airportRepository.deleteAll();
     }
 
     public long findAirportRowCount(){
