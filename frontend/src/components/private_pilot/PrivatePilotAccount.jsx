@@ -1,6 +1,11 @@
+import '../../styles/private_pilot/PrivatePilotAccount.css';
+
 function PrivatePilotAccount() {
+
     return (  
-        <div></div>
+        <div className="private-pilot-account-container ">
+
+        </div>
     );
 }
 

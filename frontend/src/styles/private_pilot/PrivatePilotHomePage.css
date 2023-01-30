@@ -25,7 +25,7 @@
 .private-pilot-homepage-content-container{
     margin : 10px;
     min-height: 95vh;
-    width : 95vw;
+    width : 90vw;
     display: grid;
     grid-template-columns: 60% 40%;
     gap : 10px;

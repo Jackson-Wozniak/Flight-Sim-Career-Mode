@@ -9,6 +9,10 @@
   
 
   height : 45vh;
+  overflow : hidden;
+}
+
+.private-pilot-hangar-container:hover{
   overflow-y: auto;
 }
 

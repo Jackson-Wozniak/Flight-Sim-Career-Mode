@@ -8,6 +8,10 @@
   background-color: var(--darkest);
 
   height : 45vh;
+  overflow : hidden;
+}
+
+.private-pilot-flights-container:hover{
   overflow-y: auto;
 }
 
