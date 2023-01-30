@@ -26,9 +26,12 @@ public class AirportConfiguration {
     @PostConstruct
     public void saveAirportsOnStartup() throws IOException {
         List<String> airportLines = Files.lines(airportFile.toPath()).toList();
-
         List<Airport> airports = AirportCsvMapper.mapAllLinesToAirports(airportLines);
-        System.out.println(airports.size());
-        System.out.println(airportService.findAirportRowCount());
+
+        if(airports.size() != airportService.findAirportRowCount()) {
+            logger.info("Saving " + (airports.size() - airportService.findAirportRowCount()) + " airports");
+            airportService.saveAllAirports(airports);
+        }
+        logger.info(airportService.findAirportRowCount() + " Airports In Database");
     }
 }
