@@ -10,18 +10,26 @@ import { getTestPilotData } from "../../utils/PrivatePilotApi";
 import LoadingScreen from '../LoadingScreen';
 import StoryPopup from "./StoryPopup";
 import AssignedFlightDisplay from './AssignedFlightDisplay';
+import { useNavigate } from "react-router-dom";
 
 function PrivatePilotHomePage() {
 
-    useEffect(() => {
-        let pilot = getTestPilotData();
-        setPilot(pilot);
-    }, []);
-    
-    // const [jwtToken, setJwtToken] = useState("");
+    const navigate = useNavigate();
+    const [jwtToken, setJwtToken] = useState("");
     const [pilot, setPilot] = useState(null);
     const [showStory, setShowStory] = useState(false);
     const [story, setStory] = useState("");
+
+    useEffect(() => {
+        let storedJwtToken = localStorage.getItem("jwtToken");
+        if(storedJwtToken === null){
+            navigate("/login");
+        }else{
+            setJwtToken(storedJwtToken);
+        }
+        let pilot = getTestPilotData();
+        setPilot(pilot);
+    }, [jwtToken, navigate]);
 
     //called from PrivatePilotFlightsComponent & StoryPopup. ShowStory actives/deactives the story popup display
     function activateStory(activated, storyChosen){

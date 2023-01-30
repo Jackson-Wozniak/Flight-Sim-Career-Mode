@@ -124,3 +124,13 @@ const pilot = new Pilot("Test Pilot", false, activeFlight, inactiveFlights, 1000
 export function getTestPilotData(){
     return pilot;
 }
+
+//this function will be used when server-side is built to update the chosen flights for pilots
+export function updatePilotData(pilot){
+
+}
+
+//this function will be used to buy planes when server-side is built
+export function buyPlane(jwtToken, plane){
+    
+}

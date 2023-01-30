@@ -1,6 +1,8 @@
 function AssignedFlightDisplay(props) {
     return (  
-        <div></div>
+        <div>
+            
+        </div>
     );
 }
 
