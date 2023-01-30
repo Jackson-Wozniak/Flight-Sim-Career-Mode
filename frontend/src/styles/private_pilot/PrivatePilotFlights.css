@@ -100,6 +100,34 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  margin : 0;
+  padding : 0;
+}
+
+.private-pilot-flight-info div{
+  width : 33.33%;
+}
+
+.airport-seperator{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.airport-seperator hr{
+  width : 100%;
+  height : 2px;
+  color : var(--dark-accents);
+  background-color: var(--dark-accents);
+  border-color: var(--dark-accents);
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.airport-direction-identifier{
+  font-size: .6rem;
 }
 
 .private-pilot-flight-info *{
@@ -134,14 +162,4 @@
 
 .assign-private-flight:hover{
   background-color: var(--dark);
-}
-
-.private-pilot-flight-info hr{
-  width : 30%;
-  height : 2px;
-  color : var(--dark-accents);
-  background-color: var(--dark-accents);
-  border-color: var(--dark-accents);
-  border-radius: 10px;
-  margin-bottom: 20px;
 }

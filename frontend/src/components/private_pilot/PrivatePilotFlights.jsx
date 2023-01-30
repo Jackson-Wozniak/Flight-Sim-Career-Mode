@@ -16,13 +16,19 @@ function PrivatePilotFlights(props) {
                                     <p>{flight.departureAirport.country}, {flight.departureAirport.continent}</p>
                                 </div>
                                 <div className="private-pilot-flight-info">
-                                    <hr />
+                                    <div className="airport-seperator">
+                                        <p className="airport-direction-identifier">Departure</p>
+                                        <hr />
+                                    </div>
                                     <div>
                                         <h4>{flight.timeToComplete} hours</h4>
                                         <button onClick={() => props.activateStory(true, flight.story)}>See Story</button>
                                         <h4>{numberFormatter.format(flight.distance)} mi</h4>
                                     </div>
-                                    <hr />
+                                    <div className="airport-seperator">
+                                        <p className="airport-direction-identifier">Destination</p>
+                                        <hr />
+                                    </div>
                                 </div>
                                 <div className="private-pilot-flight-airport-info">
                                     <p>{flight.destinationAirport.name} ({flight.destinationAirport.icaoCode})</p>

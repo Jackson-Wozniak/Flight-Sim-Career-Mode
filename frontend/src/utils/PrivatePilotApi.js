@@ -98,7 +98,7 @@ class Pilot{
 let airports = [];
 let planes = [];
 
-airports.push(new Airport("Logan Airport", "KBOS", 100, 100, "Large", "US", "NA"));
+airports.push(new Airport("Logan Internation Airport", "KBOS", 100, 100, "Large", "US", "NA"));
 airports.push(new Airport("Logan Airport", "KBOS", 100, 100, "Large", "US", "NA"));
 planes.push(new Plane("C152", 140, 1000, "propeller"));
 planes.push(new Plane("C152", 140, 1000, "propeller"));
