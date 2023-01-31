@@ -7,8 +7,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity(name = "localLicense")
-@Table(name = "local_license")
+import java.util.List;
+
+/*
+Entity that tracks progress for private pilot path. Includes XP, Flights, Stats/Achievements etc
+ */
+@Entity(name = "privatePilot")
+@Table(name = "private_pilot")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -23,7 +28,32 @@ public class PrivatePilot {
     @JsonBackReference
     private Pilot pilot;
 
+    @Column(name = "level", columnDefinition = "integer default 1")
+    private Integer level;
+
+    @Column(name = "rep_to_next_level", columnDefinition = "integer default 100")
+    private Integer reputationToNextLevel;
+
+    @Column(name = "balance", columnDefinition = "double default 0.0")
+    private Double balance;
+
+    @OneToMany(mappedBy = "privatePilot")
+    private List<PrivatePilotFlight> flights;
+
     public PrivatePilot(Pilot pilot) {
         this.pilot = pilot;
+        this.level = 1;
+        this.reputationToNextLevel = 100;
+        this.balance = 0.0;
+    }
+
+    //Level up pilot and update the new reputation tracker to next level
+    public void levelUpPilot(){
+        this.level += 1;
+        this.reputationToNextLevel = PrivatePilotUtils.findReputationToNextLevel(this.level);
+    }
+
+    public void updateBalance(double addedPayout){
+        this.balance += addedPayout;
     }
 }
