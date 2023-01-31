@@ -3,6 +3,7 @@ package com.api.career_mode.career_paths.private_pilot.story;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /*
@@ -14,6 +15,7 @@ To find the narrative again, go to the text file based on the cargo name, and sk
  */
 @Embeddable
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 public class Narrative {

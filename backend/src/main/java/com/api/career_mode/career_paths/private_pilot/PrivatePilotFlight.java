@@ -17,7 +17,7 @@ import lombok.Setter;
 public class PrivatePilotFlight {
 
     @EmbeddedId
-    private PrivatePilotId id;
+    private PrivatePilotFlightId id;
 
     @MapsId(value = "pilotUsername")
     @ManyToOne(cascade = CascadeType.ALL)

@@ -1,18 +1,17 @@
 package com.api.career_mode.career_paths.private_pilot;
 
-import com.api.career_mode.pilot.entity.Pilot;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
 
 @Embeddable
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
-public class PrivatePilotId implements Serializable {
+@EqualsAndHashCode
+public class PrivatePilotFlightId implements Serializable {
 
     private String pilotUsername;
 
