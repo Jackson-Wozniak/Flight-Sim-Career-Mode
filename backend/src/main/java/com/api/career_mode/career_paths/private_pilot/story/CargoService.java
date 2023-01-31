@@ -14,6 +14,10 @@ public class CargoService {
     @Autowired
     private final CargoRepository cargoRepository;
 
+    public Cargo findCargoByName(String cargoName){
+        return cargoRepository.findById(cargoName).orElse(DefaultCargo.getDefaultCargoByName(cargoName));
+    }
+
     public List<Cargo> findAllCargo(){
         return cargoRepository.findAll();
     }
