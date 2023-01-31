@@ -22,4 +22,7 @@ public class Cargo {
 
     @Column(name = "payout_multiplier")
     private Double payoutMultiplier;
+
+    @Column(name = "text_file_lines", columnDefinition = "bigint default 0")
+    private Long textFileLines;
 }

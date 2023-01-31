@@ -8,11 +8,9 @@ import lombok.Setter;
 @Embeddable
 @Getter
 @Setter
-@AllArgsConstructor
 public class FlightStory {
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "narrative")
+    @Embedded
     private Narrative narrative;
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -21,4 +19,15 @@ public class FlightStory {
 
     @Column(name = "weight_of_cargo_pounds")
     private Double weightOfCargoInPounds;
+    
+    @Column(name = "flight_payout_usd")
+    private Double flightPayoutInUSD;
+    
+    public FlightStory(Narrative narrative, Cargo cargo, double cargoWeight, double flightDistance){
+        this.narrative = narrative;
+        this.cargo = cargo;
+        this.weightOfCargoInPounds = cargoWeight;
+        this.flightPayoutInUSD = FlightStoryCalculator.calculateFlightPayout(
+                cargo, cargoWeight, flightDistance);
+    }
 }
