@@ -18,6 +18,11 @@ public class AirportService {
         airportRepository.saveAll(airports);
     }
 
+    public Airport findAirportByIcao(String airportName){
+        return airportRepository.findById(airportName).orElseThrow(
+                () -> new AirportNotFoundException("No airport named " + airportName));
+    }
+
     @Transactional
     public void deleteAllAirports(){
         airportRepository.deleteAll();
