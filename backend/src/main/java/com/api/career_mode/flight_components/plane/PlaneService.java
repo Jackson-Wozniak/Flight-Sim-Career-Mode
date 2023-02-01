@@ -14,6 +14,15 @@ public class PlaneService {
     @Autowired
     private final PlaneRepository planeRepository;
 
+    public Plane findPlaneByName(String name){
+        return planeRepository.findById(name).orElseThrow(
+                () -> new PlaneNotFoundException("No Plane with name " + name));
+    }
+
+    public void savePlane(Plane plane){
+        planeRepository.save(plane);
+    }
+
     public void saveAllPlanes(List<Plane> planes){
         planeRepository.saveAll(planes);
     }

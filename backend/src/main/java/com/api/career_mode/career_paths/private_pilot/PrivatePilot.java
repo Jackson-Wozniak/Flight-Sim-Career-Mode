@@ -1,5 +1,7 @@
 package com.api.career_mode.career_paths.private_pilot;
 
+import com.api.career_mode.flight_components.plane.Plane;
+import com.api.career_mode.flight_components.plane.PlaneOwned;
 import com.api.career_mode.pilot.entity.Pilot;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
@@ -7,6 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /*
@@ -40,11 +43,18 @@ public class PrivatePilot {
     @OneToMany(mappedBy = "privatePilot")
     private List<PrivatePilotFlight> flights;
 
+    @Column(name = "current_flight_activated")
+    private Boolean currentFlightActivated;
+
+    @OneToMany(mappedBy = "privatePilot")
+    private List<PlaneOwned> planesOwned;
+
     public PrivatePilot(Pilot pilot) {
         this.pilot = pilot;
         this.level = 1;
         this.reputationToNextLevel = 100;
         this.balance = 0.0;
+        this.currentFlightActivated = false;
     }
 
     //Level up pilot and update the new reputation tracker to next level

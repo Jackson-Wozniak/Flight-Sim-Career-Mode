@@ -19,6 +19,11 @@ public class PrivatePilotFlight {
     @EmbeddedId
     private PrivatePilotFlightId id;
 
+    //keep track of what flight is active, and allow for that one to be displayed to user seperately
+    //from available flights
+    @Column(name = "is_current_flight")
+    private Boolean isCurrentFlight;
+
     @MapsId(value = "pilotUsername")
     @ManyToOne(cascade = CascadeType.ALL)
     private PrivatePilot privatePilot;
