@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -15,6 +16,12 @@ public class PrivatePilotFlightService {
 
     public List<PrivatePilotFlight> findAllFlightsByPilot(PrivatePilot privatePilot){
         return privatePilotFlightRepository.findAllFlightsByPilot(privatePilot.getUsername());
+    }
+
+    public List<PrivatePilotFlightDto> findAllFlightDTOByPilot(PrivatePilot privatePilot){
+        return privatePilotFlightRepository.findAllFlightsByPilot(privatePilot.getUsername()).stream()
+                .map(PrivatePilotFlightDto::new)
+                .collect(Collectors.toList());
     }
 
     public void savePrivatePilotFlight(PrivatePilotFlight flight){

@@ -6,13 +6,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 @Entity(name = "plane")
 @Table(name = "planes")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class Plane {
+public class Plane implements Serializable {
 
     @Id
     @Column(name = "plane_name")

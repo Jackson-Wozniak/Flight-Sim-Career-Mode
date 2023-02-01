@@ -7,11 +7,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 @Embeddable
 @NoArgsConstructor
 @Getter
 @Setter
-public class Route {
+public class Route implements Serializable {
 
     @OneToOne(cascade = CascadeType.ALL )
     @JoinColumn(name = "plane_name")

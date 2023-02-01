@@ -13,7 +13,7 @@ public class NarrativeDtoMapper {
             You have been chosen to fly from {departureAirport}.
     """;
 
-    public static NarrativeDto mapNarrative(Narrative narrative, PrivatePilotFlight flight){
+    public static String mapNarrative(Narrative narrative, PrivatePilotFlight flight){
         String generatedNarrative;
         try{
             generatedNarrative = Files.lines(convertCargoNameToFile(
@@ -23,10 +23,7 @@ public class NarrativeDtoMapper {
         }catch (IOException ex){
             generatedNarrative = defaultNarrative;
         }
-        return new NarrativeDto(
-                replaceFieldVariables(generatedNarrative, flight),
-                narrative.getRelatedCargoName()
-        );
+        return replaceFieldVariables(generatedNarrative, flight);
     }
 
     public static String replaceFieldVariables(String defaultNarrative, PrivatePilotFlight flight){
