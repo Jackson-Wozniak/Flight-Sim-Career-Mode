@@ -10,16 +10,16 @@ import lombok.Setter;
 public class RouteDto {
 
     private PlaneDto plane;
-    private AirportDto departureAirport;
-    private AirportDto destinationAirport;
-    private double routeDistanceInMiles;
-    private double routeDurationInHours;
+    private AirportDto departure;
+    private AirportDto destination;
+    private double distanceInMiles;
+    private double durationInHours;
 
     public RouteDto(Route route){
         this.plane = new PlaneDto(route.getPlane());
-        this.departureAirport = new AirportDto(route.getDepartureAirport());
-        this.destinationAirport = new AirportDto(route.getDestinationAirport());
-        this.routeDistanceInMiles = route.getRouteDistanceInMiles();
-        this.routeDurationInHours = route.getRouteDurationInHours();
+        this.departure = new AirportDto(route.getDepartureAirport());
+        this.destination = new AirportDto(route.getDestinationAirport());
+        this.distanceInMiles = route.getRouteDistanceInMiles();
+        this.durationInHours = route.getRouteDurationInHours();
     }
 }

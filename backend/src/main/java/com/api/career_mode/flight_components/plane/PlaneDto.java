@@ -7,15 +7,15 @@ import lombok.Setter;
 @Setter
 public class PlaneDto {
 
-    private String planeName;
+    private String name;
     private int cruisingSpeedInKnots;
     private int rangeInMiles;
-    private PlaneType planeType;
+    private String type;
 
     public PlaneDto(Plane plane){
-        this.planeName = plane.getPlaneName();
+        this.name = plane.getPlaneName();
         this.cruisingSpeedInKnots = plane.getCruisingSpeedInKnots();
         this.rangeInMiles = plane.getRangeInMiles();
-        this.planeType = plane.getPlaneType();
+        this.type = plane.getPlaneType().toString();
     }
 }

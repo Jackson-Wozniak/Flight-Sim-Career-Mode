@@ -8,8 +8,8 @@ import lombok.Setter;
 public class AirportDto {
 
     private String icaoCode;
-    private String airportSize;
-    private String airportName;
+    private String size;
+    private String name;
     private double latitude;
     private double longitude;
     private String country;
@@ -17,8 +17,8 @@ public class AirportDto {
 
     public AirportDto(Airport airport){
         this.icaoCode = airport.getIcaoCode();
-        this.airportSize = airport.getAirportSize();
-        this.airportName = airport.getAirportName();
+        this.size = airport.getAirportSize();
+        this.name = airport.getAirportName();
         this.latitude = airport.getLatitude();
         this.longitude = airport.getLongitude();
         this.country = airport.getCountry();
