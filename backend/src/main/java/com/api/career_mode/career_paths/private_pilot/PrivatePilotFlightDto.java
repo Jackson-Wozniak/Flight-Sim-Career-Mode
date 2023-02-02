@@ -16,7 +16,7 @@ import java.io.Serializable;
 @Setter
 public class PrivatePilotFlightDto implements Serializable {
 
-    private int flightIndex;
+    private long flightIndex;
     private boolean isCurrentFlight;
     private RouteDto route;
     private FlightStoryDto flightStory;

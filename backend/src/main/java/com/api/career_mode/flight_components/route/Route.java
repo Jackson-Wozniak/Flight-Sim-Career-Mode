@@ -3,6 +3,7 @@ package com.api.career_mode.flight_components.route;
 import com.api.career_mode.flight_components.airport.Airport;
 import com.api.career_mode.flight_components.plane.Plane;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,6 +11,7 @@ import lombok.Setter;
 import java.io.Serializable;
 
 @Embeddable
+@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter

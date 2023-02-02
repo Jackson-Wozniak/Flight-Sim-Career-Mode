@@ -49,12 +49,17 @@ public class PrivatePilot {
     @OneToMany(mappedBy = "privatePilot")
     private List<PlaneOwned> planesOwned;
 
+    //Used to generate the index of newly generated private flights
+    @Column(name = "flights_assigned", columnDefinition = "bigint default 0")
+    private Long flightsAssigned;
+
     public PrivatePilot(Pilot pilot) {
         this.pilot = pilot;
         this.level = 1;
         this.reputationToNextLevel = 100;
         this.balance = 0.0;
         this.currentFlightActivated = false;
+        this.flightsAssigned = 0L;
     }
 
     //Level up pilot and update the new reputation tracker to next level
@@ -65,5 +70,9 @@ public class PrivatePilot {
 
     public void updateBalance(double addedPayout){
         this.balance += addedPayout;
+    }
+
+    public void incrementFlightAssigned(){
+        this.flightsAssigned += 1;
     }
 }

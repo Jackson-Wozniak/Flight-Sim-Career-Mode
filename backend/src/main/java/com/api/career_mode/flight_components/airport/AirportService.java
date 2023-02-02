@@ -23,6 +23,14 @@ public class AirportService {
                 () -> new AirportNotFoundException("No airport named " + airportName));
     }
 
+    public List<Airport> findAllAirports(){
+        return airportRepository.findAll();
+    }
+
+    public List<Airport> findAllAirportsByCountry(String country){
+        return airportRepository.findAllAirportsByCountry();
+    }
+
     @Transactional
     public void deleteAllAirports(){
         airportRepository.deleteAll();

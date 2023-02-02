@@ -16,5 +16,5 @@ public class PrivatePilotFlightId implements Serializable {
     private String pilotUsername;
 
     @Column(name = "flight_index")
-    private Integer flightIndex;
+    private Long flightIndex;
 }
