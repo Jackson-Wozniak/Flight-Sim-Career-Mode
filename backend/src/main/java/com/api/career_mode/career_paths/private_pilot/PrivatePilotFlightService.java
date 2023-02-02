@@ -14,14 +14,28 @@ public class PrivatePilotFlightService {
     @Autowired
     private final PrivatePilotFlightRepository privatePilotFlightRepository;
 
-    public List<PrivatePilotFlight> findAllFlightsByPilot(PrivatePilot privatePilot){
-        return privatePilotFlightRepository.findAllFlightsByPilot(privatePilot.getUsername());
+    public PrivatePilotFlight findFlightByPilotAndIndex(long flightIndex, PrivatePilot pilot){
+        return privatePilotFlightRepository.findAllFlightsByPilot(pilot.getUsername()).stream()
+                .filter(flight -> flight.getId().getFlightIndex() == flightIndex)
+                .findFirst()
+                .orElseThrow(() -> new FlightQueryException("Pilot " + pilot.getUsername() +
+                        " does not have flight with index " + flightIndex));
     }
 
-    public List<PrivatePilotFlightDto> findAllFlightDTOByPilot(PrivatePilot privatePilot){
-        return privatePilotFlightRepository.findAllFlightsByPilot(privatePilot.getUsername()).stream()
-                .map(PrivatePilotFlightDto::new)
-                .collect(Collectors.toList());
+    public PrivatePilotFlight findActivePrivateFlight(PrivatePilot pilot){
+        return privatePilotFlightRepository.findAllFlightsByPilot(pilot.getUsername()).stream()
+                .filter(PrivatePilotFlight::getIsCurrentFlight)
+                .findFirst()
+                .orElseThrow(() -> new FlightQueryException("No active flight for pilot"));
+    }
+
+    public boolean isPilotFlightActive(PrivatePilot pilot){
+        return privatePilotFlightRepository.findAllFlightsByPilot(pilot.getUsername()).stream()
+                .anyMatch(PrivatePilotFlight::getIsCurrentFlight);
+    }
+
+    public List<PrivatePilotFlight> findAllFlightsByPilot(PrivatePilot privatePilot){
+        return privatePilotFlightRepository.findAllFlightsByPilot(privatePilot.getUsername());
     }
 
     public void savePrivatePilotFlight(PrivatePilotFlight flight){
