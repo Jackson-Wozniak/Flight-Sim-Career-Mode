@@ -1,6 +1,6 @@
 <div align="center">
   <a href="">
-    <img src="https://user-images.githubusercontent.com/105665813/195965037-b0ae254a-6fe7-459d-be91-b36ac37e1865.png" alt="Logo" width="600" height="320">
+    <kbd> <img src="https://user-images.githubusercontent.com/105665813/216509698-577f632b-ac82-4029-8c3e-dd1735a9aca7.png" alt="Logo" width="400"> </kbd>
   </a>
 
   <h3 align="center">Flight Simulator Career Mode</h3>
