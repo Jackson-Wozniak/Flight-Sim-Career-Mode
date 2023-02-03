@@ -1,5 +1,6 @@
-package com.api.career_mode.flight_components.airport;
+package com.api.career_mode.flight_components.dto;
 
+import com.api.career_mode.flight_components.entity.Airport;
 import lombok.Getter;
 import lombok.Setter;
 

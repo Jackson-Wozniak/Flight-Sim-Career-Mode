@@ -1,5 +1,6 @@
-package com.api.career_mode.flight_components.airport;
+package com.api.career_mode.flight_components.repository;
 
+import com.api.career_mode.flight_components.entity.Airport;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

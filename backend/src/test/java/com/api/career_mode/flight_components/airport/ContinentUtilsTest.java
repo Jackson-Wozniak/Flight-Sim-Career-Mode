@@ -1,5 +1,6 @@
 package com.api.career_mode.flight_components.airport;
 
+import com.api.career_mode.flight_components.utils.ContinentUtils;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

@@ -1,4 +1,7 @@
-package com.api.career_mode.flight_components.plane;
+package com.api.career_mode.flight_components.utils;
+
+import com.api.career_mode.flight_components.entity.Plane;
+import com.api.career_mode.flight_components.enums.PlaneType;
 
 import java.util.List;
 import java.util.stream.Collectors;

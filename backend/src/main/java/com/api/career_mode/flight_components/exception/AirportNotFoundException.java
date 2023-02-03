@@ -1,4 +1,4 @@
-package com.api.career_mode.flight_components.airport;
+package com.api.career_mode.flight_components.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

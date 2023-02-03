@@ -1,8 +1,11 @@
-package com.api.career_mode.flight_components.route;
+package com.api.career_mode.flight_components.helper;
 
-import com.api.career_mode.flight_components.airport.Airport;
-import com.api.career_mode.flight_components.airport.AirportService;
-import com.api.career_mode.flight_components.plane.Plane;
+import com.api.career_mode.flight_components.entity.Airport;
+import com.api.career_mode.flight_components.entity.Route;
+import com.api.career_mode.flight_components.utils.RouteCalculationUtils;
+import com.api.career_mode.flight_components.exception.RouteGeneratorException;
+import com.api.career_mode.flight_components.service.AirportService;
+import com.api.career_mode.flight_components.entity.Plane;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

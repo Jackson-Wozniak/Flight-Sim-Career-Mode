@@ -1,5 +1,6 @@
 package com.api.career_mode.flight_components.plane;
 
+import com.api.career_mode.flight_components.enums.PlaneType;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

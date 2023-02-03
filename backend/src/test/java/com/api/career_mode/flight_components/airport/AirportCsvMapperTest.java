@@ -1,12 +1,13 @@
 package com.api.career_mode.flight_components.airport;
 
+import com.api.career_mode.flight_components.entity.Airport;
+import com.api.career_mode.flight_components.utils.AirportCsvMapper;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.List;
-import java.util.Locale;
 
 import static org.junit.jupiter.api.Assertions.*;
 

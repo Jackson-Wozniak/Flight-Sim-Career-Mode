@@ -1,4 +1,6 @@
-package com.api.career_mode.flight_components.airport;
+package com.api.career_mode.flight_components.utils;
+
+import com.api.career_mode.flight_components.entity.Airport;
 
 import java.util.List;
 import java.util.Locale;

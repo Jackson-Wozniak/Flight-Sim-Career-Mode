@@ -1,4 +1,4 @@
-package com.api.career_mode.flight_components.plane;
+package com.api.career_mode.flight_components.entity;
 
 import lombok.*;
 

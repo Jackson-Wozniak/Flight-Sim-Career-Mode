@@ -1,8 +1,8 @@
 package com.api.career_mode.career_paths.private_pilot;
 
 import com.api.career_mode.career_paths.private_pilot.story.FlightStory;
-import com.api.career_mode.flight_components.plane.Plane;
-import com.api.career_mode.flight_components.route.Route;
+import com.api.career_mode.flight_components.entity.Plane;
+import com.api.career_mode.flight_components.entity.Route;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

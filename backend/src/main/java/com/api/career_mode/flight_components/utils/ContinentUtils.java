@@ -1,4 +1,4 @@
-package com.api.career_mode.flight_components.airport;
+package com.api.career_mode.flight_components.utils;
 
 import java.util.HashMap;
 import java.util.Map;

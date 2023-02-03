@@ -1,6 +1,7 @@
-package com.api.career_mode.flight_components.route;
+package com.api.career_mode.flight_components.utils;
 
-import com.api.career_mode.flight_components.airport.Airport;
+import com.api.career_mode.flight_components.entity.Airport;
+import com.api.career_mode.flight_components.exception.RouteGeneratorException;
 
 public class RouteCalculationUtils {
 

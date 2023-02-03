@@ -1,5 +1,8 @@
-package com.api.career_mode.flight_components.airport;
+package com.api.career_mode.flight_components.service;
 
+import com.api.career_mode.flight_components.entity.Airport;
+import com.api.career_mode.flight_components.exception.AirportNotFoundException;
+import com.api.career_mode.flight_components.repository.AirportRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

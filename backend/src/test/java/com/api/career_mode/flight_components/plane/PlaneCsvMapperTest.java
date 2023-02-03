@@ -1,5 +1,8 @@
 package com.api.career_mode.flight_components.plane;
 
+import com.api.career_mode.flight_components.entity.Plane;
+import com.api.career_mode.flight_components.enums.PlaneType;
+import com.api.career_mode.flight_components.utils.PlaneCsvMapper;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;

@@ -1,18 +1,6 @@
 package com.api.career_mode.career_paths.private_pilot;
 
-import com.api.career_mode.career_paths.private_pilot.story.Cargo;
-import com.api.career_mode.career_paths.private_pilot.story.CargoService;
-import com.api.career_mode.career_paths.private_pilot.story.FlightStory;
-import com.api.career_mode.career_paths.private_pilot.story.Narrative;
-import com.api.career_mode.flight_components.airport.Airport;
-import com.api.career_mode.flight_components.airport.AirportService;
-import com.api.career_mode.flight_components.plane.*;
-import com.api.career_mode.flight_components.route.Route;
-import com.api.career_mode.flight_components.route.RouteDto;
 import com.api.career_mode.pilot.entity.Pilot;
-import com.api.career_mode.pilot.repository.PilotRepository;
-import com.api.career_mode.pilot.service.ConfirmationTokenService;
-import com.api.career_mode.pilot.service.PilotService;
 import com.api.career_mode.pilot.service.RegistrationService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +12,6 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(value = "/api/v1/pilot/private")

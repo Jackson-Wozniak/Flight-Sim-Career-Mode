@@ -1,10 +1,7 @@
 package com.api.career_mode.career_paths.private_pilot;
 
-import com.api.career_mode.career_paths.private_pilot.story.FlightStory;
 import com.api.career_mode.career_paths.private_pilot.story.FlightStoryDto;
-import com.api.career_mode.flight_components.route.Route;
-import com.api.career_mode.flight_components.route.RouteDto;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.api.career_mode.flight_components.dto.RouteDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;

@@ -1,7 +1,6 @@
 package com.api.career_mode.career_paths.private_pilot;
 
-import com.api.career_mode.flight_components.plane.Plane;
-import com.api.career_mode.flight_components.plane.PlaneOwned;
+import com.api.career_mode.flight_components.entity.PlaneOwned;
 import com.api.career_mode.pilot.entity.Pilot;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
@@ -9,7 +8,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /*

@@ -1,4 +1,4 @@
-package com.api.career_mode.flight_components.plane;
+package com.api.career_mode.flight_components.entity;
 
 import com.api.career_mode.career_paths.private_pilot.PrivatePilot;
 import com.fasterxml.jackson.annotation.JsonBackReference;

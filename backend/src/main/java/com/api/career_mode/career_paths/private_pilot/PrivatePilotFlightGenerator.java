@@ -2,19 +2,13 @@ package com.api.career_mode.career_paths.private_pilot;
 
 import com.api.career_mode.career_paths.private_pilot.story.FlightStory;
 import com.api.career_mode.career_paths.private_pilot.story.FlightStoryBuilder;
-import com.api.career_mode.career_paths.private_pilot.story.NarrativeBuilder;
-import com.api.career_mode.flight_components.airport.Airport;
-import com.api.career_mode.flight_components.airport.AirportService;
-import com.api.career_mode.flight_components.plane.Plane;
-import com.api.career_mode.flight_components.route.Route;
-import com.api.career_mode.flight_components.route.RouteGenerator;
+import com.api.career_mode.flight_components.entity.Plane;
+import com.api.career_mode.flight_components.entity.Route;
+import com.api.career_mode.flight_components.helper.RouteGenerator;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.Duration;
-import java.time.Instant;
-import java.util.List;
 import java.util.Random;
 
 @Service

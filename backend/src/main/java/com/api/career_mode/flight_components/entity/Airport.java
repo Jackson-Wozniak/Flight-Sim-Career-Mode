@@ -1,4 +1,4 @@
-package com.api.career_mode.flight_components.airport;
+package com.api.career_mode.flight_components.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

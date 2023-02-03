@@ -1,6 +1,7 @@
 package com.api.career_mode.flight_components.route;
 
-import com.api.career_mode.flight_components.airport.Airport;
+import com.api.career_mode.flight_components.entity.Airport;
+import com.api.career_mode.flight_components.utils.RouteCalculationUtils;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

@@ -1,5 +1,8 @@
-package com.api.career_mode.flight_components.plane;
+package com.api.career_mode.flight_components.configuration;
 
+import com.api.career_mode.flight_components.entity.Plane;
+import com.api.career_mode.flight_components.utils.PlaneCsvMapper;
+import com.api.career_mode.flight_components.service.PlaneService;
 import jakarta.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
@@ -12,7 +15,6 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Configuration
 @Service

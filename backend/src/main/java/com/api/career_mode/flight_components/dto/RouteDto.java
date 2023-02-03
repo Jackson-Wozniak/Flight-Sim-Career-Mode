@@ -1,7 +1,8 @@
-package com.api.career_mode.flight_components.route;
+package com.api.career_mode.flight_components.dto;
 
-import com.api.career_mode.flight_components.airport.AirportDto;
-import com.api.career_mode.flight_components.plane.PlaneDto;
+import com.api.career_mode.flight_components.dto.AirportDto;
+import com.api.career_mode.flight_components.dto.PlaneDto;
+import com.api.career_mode.flight_components.entity.Route;
 import lombok.Getter;
 import lombok.Setter;
 

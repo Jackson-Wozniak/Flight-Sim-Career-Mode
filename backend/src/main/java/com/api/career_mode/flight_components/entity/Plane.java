@@ -1,5 +1,6 @@
-package com.api.career_mode.flight_components.plane;
+package com.api.career_mode.flight_components.entity;
 
+import com.api.career_mode.flight_components.enums.PlaneType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
