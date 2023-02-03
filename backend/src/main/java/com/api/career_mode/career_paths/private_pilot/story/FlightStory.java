@@ -14,7 +14,7 @@ public class FlightStory {
     @Embedded
     private Narrative narrative;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "cargo_type")
     private Cargo cargo;
 

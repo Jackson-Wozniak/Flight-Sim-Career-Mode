@@ -62,6 +62,18 @@ public class PrivatePilot {
         this.flightsAssigned = 0L;
     }
 
+    public void increaseReputation(int reputationIncrease){
+        while(reputationIncrease > this.reputationToNextLevel){
+            reputationIncrease -= reputationToNextLevel;
+            this.levelUpPilot();
+            if(reputationIncrease < this.reputationToNextLevel){
+                this.reputationToNextLevel -= reputationIncrease;
+                break;
+            }
+        }
+        this.reputationToNextLevel -= reputationIncrease;
+    }
+
     //Level up pilot and update the new reputation tracker to next level
     public void levelUpPilot(){
         this.level += 1;
@@ -74,5 +86,9 @@ public class PrivatePilot {
 
     public void incrementFlightAssigned(){
         this.flightsAssigned += 1;
+    }
+
+    public void addToBalance(double payout){
+        this.balance += payout;
     }
 }

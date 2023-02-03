@@ -17,15 +17,15 @@ import java.io.Serializable;
 @Setter
 public class Route implements Serializable {
 
-    @OneToOne(cascade = CascadeType.ALL )
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "plane_name")
     private Plane plane;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "departure_airport")
     private Airport departureAirport;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "destination_airport")
     private Airport destinationAirport;
 

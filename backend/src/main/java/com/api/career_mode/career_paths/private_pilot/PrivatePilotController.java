@@ -18,10 +18,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.Duration;
 import java.time.Instant;
@@ -40,6 +37,8 @@ public class PrivatePilotController {
     private final PrivatePilotFlightService privatePilotFlightService;
     @Autowired
     private final PrivatePilotFlightGenerator privatePilotFlightGenerator;
+    @Autowired
+    private final PrivatePilotFlightHandler privatePilotFlightHandler;
 
 
     @RequestMapping(value = "/flights")
@@ -65,6 +64,40 @@ public class PrivatePilotController {
         }catch (Exception ex){
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
         }
+    }
+
+    @PutMapping(value = "/flights/active")
+    public void assignActiveFlight(@RequestParam("token") String token,
+                                   @RequestParam("flightIndex") long flightIndex){
+        try{
+            Pilot pilot = registrationService.confirmToken(token);
+            privatePilotFlightService.assignActiveFlightToPilot(pilot.getPrivatePilot(), flightIndex);
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+    @PutMapping(value = "/flights/complete")
+    public void completeFlight(@RequestParam("token") String token,
+                               @RequestParam("flightIndex") long flightIndex,
+                               @RequestParam("outcome") String outcome){
+        try{
+            Pilot pilot = registrationService.confirmToken(token);
+            privatePilotFlightHandler.handleFlight(
+                    pilot.getPrivatePilot(),
+                    flightIndex,
+                    FlightOutcomes.mapStringToOutcome(outcome));
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+    @PostMapping(value = "/flights")
+    public void addToNewFlight(@RequestParam("token") String token){
+        Pilot pilot = registrationService.confirmToken(token);
+        privatePilotFlightService.savePrivatePilotFlight(
+                privatePilotFlightGenerator.generateFlight(pilot.getPrivatePilot())
+        );
     }
 
     //Method used to test the time of api requests for creating flights

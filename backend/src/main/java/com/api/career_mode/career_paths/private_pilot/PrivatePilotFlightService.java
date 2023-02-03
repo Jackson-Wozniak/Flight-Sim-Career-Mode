@@ -1,5 +1,6 @@
 package com.api.career_mode.career_paths.private_pilot;
 
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,8 @@ public class PrivatePilotFlightService {
 
     @Autowired
     private final PrivatePilotFlightRepository privatePilotFlightRepository;
+    @Autowired
+    private final PrivatePilotService privatePilotService;
 
     public PrivatePilotFlight findFlightByPilotAndIndex(long flightIndex, PrivatePilot pilot){
         return privatePilotFlightRepository.findAllFlightsByPilot(pilot.getUsername()).stream()
@@ -20,6 +23,25 @@ public class PrivatePilotFlightService {
                 .findFirst()
                 .orElseThrow(() -> new FlightQueryException("Pilot " + pilot.getUsername() +
                         " does not have flight with index " + flightIndex));
+    }
+
+    public void assignActiveFlightToPilot(PrivatePilot pilot, long flightIndex){
+        if(isPilotFlightActive(pilot)){
+            throw new FlightQueryException("Cannot assign active flight to user when" +
+                    "the pilot already has an active flight");
+        }
+        PrivatePilotFlight flight = privatePilotFlightRepository.findPilotsFlightByIndex(
+                pilot.getUsername(), flightIndex).orElseThrow(
+                        () -> new FlightQueryException("Cannot find flight with given index"));
+        flight.setIsCurrentFlight(true);
+        privatePilotFlightRepository.save(flight);
+        pilot.setCurrentFlightActivated(true);
+        privatePilotService.updatePilot(pilot);
+    }
+
+    @Transactional
+    public void deletePrivatePilotFlight(PrivatePilotFlight flight){
+        privatePilotFlightRepository.delete(flight);
     }
 
     public PrivatePilotFlight findActivePrivateFlight(PrivatePilot pilot){

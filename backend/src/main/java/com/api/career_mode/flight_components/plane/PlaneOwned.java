@@ -33,7 +33,7 @@ public class PlaneOwned {
     private PrivatePilot privatePilot;
 
     @MapsId(value = "planeName")
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "planeName")
     private Plane plane;
 

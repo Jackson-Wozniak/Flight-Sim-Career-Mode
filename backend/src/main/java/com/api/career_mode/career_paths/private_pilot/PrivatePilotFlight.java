@@ -26,7 +26,7 @@ public class PrivatePilotFlight {
     private Boolean isCurrentFlight;
 
     @MapsId(value = "pilotUsername")
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private PrivatePilot privatePilot;
 
     @Embedded

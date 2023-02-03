@@ -26,9 +26,7 @@ public class PrivatePilotFlightGenerator {
     @Autowired
     private final FlightStoryBuilder flightStoryBuilder;
     @Autowired
-    private final PrivatePilotRepository privatePilotRepository;
-    @Autowired
-    private final AirportService airportService;
+    private final PrivatePilotService privatePilotService;
 
     private static final Random random = new Random();
 
@@ -49,7 +47,7 @@ public class PrivatePilotFlightGenerator {
         FlightStory flightStory = flightStoryBuilder.buildStory(route.getRouteDistanceInMiles());
 
         pilot.incrementFlightAssigned();
-        privatePilotRepository.save(pilot);
+        privatePilotService.updatePilot(pilot);
 
         return new PrivatePilotFlight(
                 id,
