@@ -39,7 +39,7 @@ public class PrivatePilot {
     private Double balance;
 
     @OneToMany(mappedBy = "privatePilot")
-    private List<PrivatePilotFlight> flights;
+    private List<ContractedFlight> flights;
 
     @Column(name = "current_flight_activated")
     private Boolean currentFlightActivated;

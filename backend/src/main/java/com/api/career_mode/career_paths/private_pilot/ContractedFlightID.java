@@ -11,7 +11,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @EqualsAndHashCode
-public class PrivatePilotFlightId implements Serializable {
+public class ContractedFlightID implements Serializable {
 
     private String pilotUsername;
 

@@ -6,19 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
-public class PrivatePilotFlightService {
+public class ContractedFlightService {
 
     @Autowired
-    private final PrivatePilotFlightRepository privatePilotFlightRepository;
+    private final ContractedFlightRepository contractedFlightRepository;
     @Autowired
     private final PrivatePilotService privatePilotService;
 
-    public PrivatePilotFlight findFlightByPilotAndIndex(long flightIndex, PrivatePilot pilot){
-        return privatePilotFlightRepository.findAllFlightsByPilot(pilot.getUsername()).stream()
+    public ContractedFlight findFlightByPilotAndIndex(long flightIndex, PrivatePilot pilot){
+        return contractedFlightRepository.findAllFlightsByPilot(pilot.getUsername()).stream()
                 .filter(flight -> flight.getId().getFlightIndex() == flightIndex)
                 .findFirst()
                 .orElseThrow(() -> new FlightQueryException("Pilot " + pilot.getUsername() +
@@ -30,37 +29,37 @@ public class PrivatePilotFlightService {
             throw new FlightQueryException("Cannot assign active flight to user when" +
                     "the pilot already has an active flight");
         }
-        PrivatePilotFlight flight = privatePilotFlightRepository.findPilotsFlightByIndex(
+        ContractedFlight flight = contractedFlightRepository.findPilotsFlightByIndex(
                 pilot.getUsername(), flightIndex).orElseThrow(
                         () -> new FlightQueryException("Cannot find flight with given index"));
         flight.setIsCurrentFlight(true);
-        privatePilotFlightRepository.save(flight);
+        contractedFlightRepository.save(flight);
         pilot.setCurrentFlightActivated(true);
         privatePilotService.updatePilot(pilot);
     }
 
     @Transactional
-    public void deletePrivatePilotFlight(PrivatePilotFlight flight){
-        privatePilotFlightRepository.delete(flight);
+    public void deletePrivatePilotFlight(ContractedFlight flight){
+        contractedFlightRepository.delete(flight);
     }
 
-    public PrivatePilotFlight findActivePrivateFlight(PrivatePilot pilot){
-        return privatePilotFlightRepository.findAllFlightsByPilot(pilot.getUsername()).stream()
-                .filter(PrivatePilotFlight::getIsCurrentFlight)
+    public ContractedFlight findActivePrivateFlight(PrivatePilot pilot){
+        return contractedFlightRepository.findAllFlightsByPilot(pilot.getUsername()).stream()
+                .filter(ContractedFlight::getIsCurrentFlight)
                 .findFirst()
                 .orElseThrow(() -> new FlightQueryException("No active flight for pilot"));
     }
 
     public boolean isPilotFlightActive(PrivatePilot pilot){
-        return privatePilotFlightRepository.findAllFlightsByPilot(pilot.getUsername()).stream()
-                .anyMatch(PrivatePilotFlight::getIsCurrentFlight);
+        return contractedFlightRepository.findAllFlightsByPilot(pilot.getUsername()).stream()
+                .anyMatch(ContractedFlight::getIsCurrentFlight);
     }
 
-    public List<PrivatePilotFlight> findAllFlightsByPilot(PrivatePilot privatePilot){
-        return privatePilotFlightRepository.findAllFlightsByPilot(privatePilot.getUsername());
+    public List<ContractedFlight> findAllFlightsByPilot(PrivatePilot privatePilot){
+        return contractedFlightRepository.findAllFlightsByPilot(privatePilot.getUsername());
     }
 
-    public void savePrivatePilotFlight(PrivatePilotFlight flight){
-        privatePilotFlightRepository.save(flight);
+    public void savePrivatePilotFlight(ContractedFlight flight){
+        contractedFlightRepository.save(flight);
     }
 }

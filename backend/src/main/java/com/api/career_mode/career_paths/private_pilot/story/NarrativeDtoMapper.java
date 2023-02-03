@@ -1,6 +1,6 @@
 package com.api.career_mode.career_paths.private_pilot.story;
 
-import com.api.career_mode.career_paths.private_pilot.PrivatePilotFlight;
+import com.api.career_mode.career_paths.private_pilot.ContractedFlight;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,7 +13,7 @@ public class NarrativeDtoMapper {
             You have been chosen to fly from {departureAirport}.
     """;
 
-    public static String mapNarrative(Narrative narrative, PrivatePilotFlight flight){
+    public static String mapNarrative(Narrative narrative, ContractedFlight flight){
         String generatedNarrative;
         try{
             generatedNarrative = Files.lines(convertCargoNameToFile(
@@ -26,7 +26,7 @@ public class NarrativeDtoMapper {
         return replaceFieldVariables(generatedNarrative, flight);
     }
 
-    public static String replaceFieldVariables(String defaultNarrative, PrivatePilotFlight flight){
+    public static String replaceFieldVariables(String defaultNarrative, ContractedFlight flight){
         return defaultNarrative
                 .replace("{departureAirport}" , flight.getRoute().getDepartureAirport().getAirportName())
                 .replace("{destinationAirport}" , flight.getRoute().getDestinationAirport().getAirportName())

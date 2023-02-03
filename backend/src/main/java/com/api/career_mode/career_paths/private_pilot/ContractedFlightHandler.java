@@ -9,15 +9,15 @@ Helper class that will handle completed flights, allocating payout, reputation e
  */
 @Component
 @AllArgsConstructor
-public class PrivatePilotFlightHandler {
+public class ContractedFlightHandler {
 
     @Autowired
     private final PrivatePilotService privatePilotService;
     @Autowired
-    private final PrivatePilotFlightService privatePilotFlightService;
+    private final ContractedFlightService contractedFlightService;
 
     public void handleFlight(PrivatePilot pilot, long flightIndex, FlightOutcomes outcome){
-        PrivatePilotFlight flight = privatePilotFlightService.findFlightByPilotAndIndex(
+        ContractedFlight flight = contractedFlightService.findFlightByPilotAndIndex(
                 flightIndex, pilot);
         if(!flight.getIsCurrentFlight()){
             throw new FlightQueryException("Only active flights can be completed");
@@ -29,18 +29,18 @@ public class PrivatePilotFlightHandler {
         }
     }
 
-    private void handleCompletedFlight(PrivatePilotFlight flight, PrivatePilot pilot){
+    private void handleCompletedFlight(ContractedFlight flight, PrivatePilot pilot){
         pilot.addToBalance(flight.getFlightStory().getFlightPayoutInUSD());
         pilot.increaseReputation(PrivatePilotUtils.calculateReputationEarned(flight.getFlightStory()));
         privatePilotService.updatePilot(pilot);
-        privatePilotFlightService.deletePrivatePilotFlight(flight);
+        contractedFlightService.deletePrivatePilotFlight(flight);
     }
 
-    private void handleCrashedFlight(PrivatePilotFlight flight, PrivatePilot pilot){
+    private void handleCrashedFlight(ContractedFlight flight, PrivatePilot pilot){
 
     }
 
-    private void handleIncompleteFlight(PrivatePilotFlight flight, PrivatePilot pilot){
+    private void handleIncompleteFlight(ContractedFlight flight, PrivatePilot pilot){
 
     }
 }

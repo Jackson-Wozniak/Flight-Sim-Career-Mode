@@ -21,20 +21,20 @@ public class PrivatePilotController {
     @Autowired
     private final RegistrationService registrationService;
     @Autowired
-    private final PrivatePilotFlightService privatePilotFlightService;
+    private final ContractedFlightService contractedFlightService;
     @Autowired
-    private final PrivatePilotFlightGenerator privatePilotFlightGenerator;
+    private final ContractedFlightGenerator contractedFlightGenerator;
     @Autowired
-    private final PrivatePilotFlightHandler privatePilotFlightHandler;
+    private final ContractedFlightHandler contractedFlightHandler;
 
 
     @RequestMapping(value = "/flights")
     public ResponseEntity<?> getAllFlightsByPilot(@RequestParam("token") String token){
         try{
             Pilot pilot = registrationService.confirmToken(token);
-            List<PrivatePilotFlightDto> flightDTOs = privatePilotFlightService.findAllFlightsByPilot(
+            List<ContractedFlightDTO> flightDTOs = contractedFlightService.findAllFlightsByPilot(
                             pilot.getPrivatePilot()).stream()
-                    .map(PrivatePilotFlightDto::new).toList();
+                    .map(ContractedFlightDTO::new).toList();
             return ResponseEntity.ok(flightDTOs);
         }catch (Exception ex){
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
@@ -45,8 +45,8 @@ public class PrivatePilotController {
     public ResponseEntity<?> getActiveFlightsByPilot(@RequestParam("token") String token){
         try{
             Pilot pilot = registrationService.confirmToken(token);
-            return ResponseEntity.ok(new PrivatePilotFlightDto(
-                    privatePilotFlightService.findActivePrivateFlight(pilot.getPrivatePilot())
+            return ResponseEntity.ok(new ContractedFlightDTO(
+                    contractedFlightService.findActivePrivateFlight(pilot.getPrivatePilot())
             ));
         }catch (Exception ex){
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
@@ -58,7 +58,7 @@ public class PrivatePilotController {
                                    @RequestParam("flightIndex") long flightIndex){
         try{
             Pilot pilot = registrationService.confirmToken(token);
-            privatePilotFlightService.assignActiveFlightToPilot(pilot.getPrivatePilot(), flightIndex);
+            contractedFlightService.assignActiveFlightToPilot(pilot.getPrivatePilot(), flightIndex);
         }catch (Exception ex){
             ex.printStackTrace();
         }
@@ -70,7 +70,7 @@ public class PrivatePilotController {
                                @RequestParam("outcome") String outcome){
         try{
             Pilot pilot = registrationService.confirmToken(token);
-            privatePilotFlightHandler.handleFlight(
+            contractedFlightHandler.handleFlight(
                     pilot.getPrivatePilot(),
                     flightIndex,
                     FlightOutcomes.mapStringToOutcome(outcome));
@@ -82,8 +82,8 @@ public class PrivatePilotController {
     @PostMapping(value = "/flights")
     public void addToNewFlight(@RequestParam("token") String token){
         Pilot pilot = registrationService.confirmToken(token);
-        privatePilotFlightService.savePrivatePilotFlight(
-                privatePilotFlightGenerator.generateFlight(pilot.getPrivatePilot())
+        contractedFlightService.savePrivatePilotFlight(
+                contractedFlightGenerator.generateFlight(pilot.getPrivatePilot())
         );
     }
 
@@ -92,12 +92,12 @@ public class PrivatePilotController {
     public String test(@RequestParam("token") String token){
         PrivatePilot pilot = registrationService.confirmToken(token).getPrivatePilot();
         Instant start = Instant.now();
-        List<PrivatePilotFlight> flights = new ArrayList<>();
+        List<ContractedFlight> flights = new ArrayList<>();
         for(int i = 0; i < 10; i++){
-            flights.add(privatePilotFlightGenerator.generateFlight(pilot));
+            flights.add(contractedFlightGenerator.generateFlight(pilot));
         }
         Instant end = Instant.now();
-        List<PrivatePilotFlightDto> flightDtos = flights.stream().map(PrivatePilotFlightDto::new).toList();
+        List<ContractedFlightDTO> flightDtos = flights.stream().map(ContractedFlightDTO::new).toList();
         Instant finalTime = Instant.now();
         return "Start to finish: " + (Duration.between(start, finalTime).toMillis() / 1000.00) + ". " +
                 "End to final : " + (Duration.between(end, finalTime).toMillis() / 1000.00);

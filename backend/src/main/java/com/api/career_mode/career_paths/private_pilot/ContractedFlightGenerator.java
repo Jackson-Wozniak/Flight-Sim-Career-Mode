@@ -13,7 +13,7 @@ import java.util.Random;
 
 @Service
 @AllArgsConstructor
-public class PrivatePilotFlightGenerator {
+public class ContractedFlightGenerator {
 
     @Autowired
     private final RouteGenerator routeGenerator;
@@ -31,10 +31,10 @@ public class PrivatePilotFlightGenerator {
         Also save pilot to DB after all flights are created, instead of saving it each time
             the flightsAssigned is incremented
      */
-    public PrivatePilotFlight generateFlight(PrivatePilot pilot){
+    public ContractedFlight generateFlight(PrivatePilot pilot){
         if(!isPilotValid(pilot)) throw new FlightCreationException("Cannot create flight: invalid Pilot");
 
-        PrivatePilotFlightId id = new PrivatePilotFlightId(pilot.getUsername(), pilot.getFlightsAssigned());
+        ContractedFlightID id = new ContractedFlightID(pilot.getUsername(), pilot.getFlightsAssigned());
 
         Plane chosenPlane = pilot.getPlanesOwned().get(random.nextInt(pilot.getPlanesOwned().size())).getPlane();
         Route route = routeGenerator.generateRoute(chosenPlane);
@@ -43,7 +43,7 @@ public class PrivatePilotFlightGenerator {
         pilot.incrementFlightAssigned();
         privatePilotService.updatePilot(pilot);
 
-        return new PrivatePilotFlight(
+        return new ContractedFlight(
                 id,
                 false,
                 pilot,

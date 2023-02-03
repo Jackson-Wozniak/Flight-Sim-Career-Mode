@@ -9,16 +9,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity(name = "privatePilotFlight")
-@Table(name = "private_pilot_flights")
+@Entity(name = "contractedFlight")
+@Table(name = "contracted_flights")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class PrivatePilotFlight {
+public class ContractedFlight {
 
     @EmbeddedId
-    private PrivatePilotFlightId id;
+    private ContractedFlightID id;
 
     //keep track of what flight is active, and allow for that one to be displayed to user seperately
     //from available flights
