@@ -32,7 +32,7 @@ public class ContractedFlightGenerator {
             the flightsAssigned is incremented
      */
     public ContractedFlight generateFlight(PrivatePilot pilot){
-        if(!isPilotValid(pilot)) throw new FlightCreationException("Cannot create flight: invalid Pilot");
+        testPilotValidation(pilot);
 
         ContractedFlightID id = new ContractedFlightID(pilot.getUsername(), pilot.getFlightsAssigned());
 
@@ -53,7 +53,12 @@ public class ContractedFlightGenerator {
     }
 
     //this method is created so that I can easily add other validation fields if needed in the future
-    private boolean isPilotValid(PrivatePilot privatePilot){
-        return privatePilot.getPlanesOwned().size() >= 1;
+    private static void testPilotValidation(PrivatePilot privatePilot){
+        if(privatePilot.getPlanesOwned().size() < 1){
+            throw new PrivatePilotException("Invalid Flight: Not Enough Planes owned");
+        }
+        if(privatePilot.getFlights().size() >= 10){
+            throw new FlightCreationException("Cannot create flight: maximum flights offered");
+        }
     }
 }

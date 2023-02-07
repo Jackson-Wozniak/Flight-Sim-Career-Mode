@@ -3,6 +3,7 @@ package com.api.career_mode.career_paths.private_pilot;
 import com.api.career_mode.pilot.entity.Pilot;
 import com.api.career_mode.pilot.service.RegistrationService;
 import lombok.AllArgsConstructor;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +28,16 @@ public class PrivatePilotController {
     @Autowired
     private final ContractedFlightHandler contractedFlightHandler;
 
+    @RequestMapping
+    public ResponseEntity<?> getPilotByToken(@RequestParam("token") String token){
+        try{
+            Pilot pilot = registrationService.confirmToken(token);
+            PrivatePilotDTO privatePilot = new PrivatePilotDTO(pilot.getPrivatePilot());
+            return ResponseEntity.ok(privatePilot);
+        }catch (Exception ex){
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
 
     @RequestMapping(value = "/flights")
     public ResponseEntity<?> getAllFlightsByPilot(@RequestParam("token") String token){
@@ -80,11 +91,16 @@ public class PrivatePilotController {
     }
 
     @PostMapping(value = "/flights")
-    public void addToNewFlight(@RequestParam("token") String token){
-        Pilot pilot = registrationService.confirmToken(token);
-        contractedFlightService.savePrivatePilotFlight(
-                contractedFlightGenerator.generateFlight(pilot.getPrivatePilot())
-        );
+    public ResponseEntity<?> addToNewFlight(@RequestParam("token") String token){
+        try{
+            Pilot pilot = registrationService.confirmToken(token);
+            contractedFlightService.savePrivatePilotFlight(
+                    contractedFlightGenerator.generateFlight(pilot.getPrivatePilot())
+            );
+            return ResponseEntity.ok("Flight Created");
+        }catch(Exception ex){
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
+        }
     }
 
     //Method used to test the time of api requests for creating flights
