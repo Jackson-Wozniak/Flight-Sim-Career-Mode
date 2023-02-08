@@ -62,4 +62,8 @@ public class ContractedFlightService {
     public void savePrivatePilotFlight(ContractedFlight flight){
         contractedFlightRepository.save(flight);
     }
+
+    public void savePrivatePilotFlights(List<ContractedFlight> flights){
+        contractedFlightRepository.saveAll(flights);
+    }
 }

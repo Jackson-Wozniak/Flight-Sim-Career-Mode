@@ -20,7 +20,27 @@ public class CargoSelection {
 
     public Cargo findRandomCargo(){
         int randomNumber = random.nextInt(1, 100);
-        return findCargoByPercentChance(randomNumber);
+        return findDefaultCargoByPercentChance(randomNumber);
+    }
+
+    private Cargo findDefaultCargoByPercentChance(int randomNumber){
+        if(randomNumber > 0 && randomNumber <=2){
+            return DefaultCargo.getDefaultCargoByName("gold");
+        }
+        if(randomNumber <= 10){
+            return DefaultCargo.getDefaultCargoByName("Automotive Parts");
+        }
+        if(randomNumber <= 40){
+            return DefaultCargo.getDefaultCargoByName("CDs");
+        }
+        if(randomNumber <= 70){
+            return DefaultCargo.getDefaultCargoByName("Lumber");
+        }
+        if(randomNumber <= 100){
+            return DefaultCargo.getDefaultCargoByName("Steel");
+        }
+        //returns default cargo if random number is not matched
+        return DefaultCargo.getDefaultCargoByName("");
     }
 
 

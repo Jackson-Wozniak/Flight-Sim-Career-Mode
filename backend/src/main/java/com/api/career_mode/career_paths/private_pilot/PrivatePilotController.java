@@ -103,6 +103,20 @@ public class PrivatePilotController {
         }
     }
 
+    @PostMapping(value = "/flights/{flightsToCreate}")
+    public ResponseEntity<?> addMultipleFlights(@RequestParam("token") String token, @PathVariable("flightsToCreate") String flightsToCreate){
+        try{
+            Pilot pilot = registrationService.confirmToken(token);
+            contractedFlightService.savePrivatePilotFlights(
+                    contractedFlightGenerator.generateMultipleFlights(
+                            pilot.getPrivatePilot(),
+                            Integer.parseInt(flightsToCreate)));
+            return ResponseEntity.ok("Flights Created");
+        }catch(Exception ex){
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
+
     //Method used to test the time of api requests for creating flights
     @RequestMapping(value = "test")
     public String test(@RequestParam("token") String token){
