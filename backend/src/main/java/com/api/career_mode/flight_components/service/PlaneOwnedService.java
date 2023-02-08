@@ -13,7 +13,12 @@ public class PlaneOwnedService {
     @Autowired
     private final PlaneOwnedRepository planeOwnedRepository;
 
-    public void savePlaneOwned(PlaneOwned planeOwned){
-        planeOwnedRepository.save(planeOwned);
+    public PlaneOwned savePlaneOwned(PlaneOwned planeOwned){
+        /*
+        TODO:
+            Add prices to planes.csv and validate that the user has the balance to afford the plane.
+            Take money from balance when buying plane
+         */
+        return planeOwnedRepository.save(planeOwned);
     }
 }

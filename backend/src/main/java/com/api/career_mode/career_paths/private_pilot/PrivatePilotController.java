@@ -17,6 +17,7 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/api/v1/pilot/private")
 @AllArgsConstructor
+@CrossOrigin("http://localhost:3000")
 public class PrivatePilotController {
 
     @Autowired
