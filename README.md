@@ -29,9 +29,9 @@
 ## :books: Table of Contents
 
 <ol>
-    <li><a href="#Overview">About The Project</a></li>
-    <li><a href="#Paths">Pilot Career Paths</a></li>
-    <li><a href="#Technologies">Technologies</a></li>
+    <li><a href="-Overview">About The Project</a></li>
+    <li><a href="-Paths">Pilot Career Paths</a></li>
+    <li><a href="-Technologies">Technologies</a></li>
 </ol>    
 
 <br/> 
