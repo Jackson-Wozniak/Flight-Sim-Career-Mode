@@ -28,16 +28,14 @@
 
 ## :books: Table of Contents
 
-<ol>
-    <li><a href="#Overview">About The Project</a></li>
-    <li><a href="#Paths">Pilot Career Paths</a></li>
-    <li><a href="#Technologies">Technologies</a></li>
-</ol>    
+1. [About The Project](#overview)
+2. [Career Paths](#paths)
+3. [Technologies](#technologies)
 
 <br/> 
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-## :pencil: About The Project <a name="Overview"></a>
+## :pencil: About The Project <a id="overview"></a>
 * This app contains two paths for virtual pilots to pursue
 * Users can pursue the path of a local pilot, completing contracted flights carrying cargo, passengers, and more! Make money to improve your operations,
   and buy new planes to unlock distant airports.
@@ -47,7 +45,7 @@
 <br/> 
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-## :man_pilot: Pilot Career Paths <a name="Paths"></a>
+## :man_pilot: Pilot Career Paths <a id="paths"></a>
 
 ### Private Pilot: Contracted Flights
 * Private Pilots complete contracted flights carrying varying types of cargo or passengers
@@ -62,7 +60,7 @@
 <br/> 
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-## :iphone: Technologies <a name="Technologies"></a>
+## :iphone: Technologies <a id="technologies"></a>
 
 ### Backend
 * Java
