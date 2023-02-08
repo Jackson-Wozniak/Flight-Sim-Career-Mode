@@ -134,3 +134,15 @@ export function updatePilotData(pilot){
 export function buyPlane(jwtToken, plane){
     
 }
+
+export async function getPrivatePilotByToken(token){
+    const response = await fetch("http://localhost:8080/api/v1/pilot/private?token=" + token);
+
+    if(response.status !== 200){
+        let res = await response.text();
+        throw new Error(res);
+    }else{
+        let pilot = await response.json();
+        return pilot;
+    }
+}

@@ -6,30 +6,40 @@ import PrivatePilotStats from './PrivatePilotStats';
 import '../../styles/private_pilot/PrivatePilotHomePage.css';
 import NavBar from '../NavBar';
 import { useEffect } from "react";
-import { getTestPilotData } from "../../utils/PrivatePilotApi";
 import LoadingScreen from '../LoadingScreen';
 import StoryPopup from "./StoryPopup";
 import AssignedFlightDisplay from './AssignedFlightDisplay';
 import { useNavigate } from "react-router-dom";
+import { getPrivatePilotByToken } from "../../utils/PrivatePilotApi";
 
 function PrivatePilotHomePage() {
 
     const navigate = useNavigate();
-    const [jwtToken, setJwtToken] = useState("");
     const [pilot, setPilot] = useState(null);
     const [showStory, setShowStory] = useState(false);
     const [story, setStory] = useState("");
 
     useEffect(() => {
+        async function getPilotData(token){
+            try{
+                let pilot = await getPrivatePilotByToken(token);
+                console.log(pilot);
+                setPilot(pilot);
+            }catch (ex) {
+                localStorage.removeItem("jwtToken");
+                localStorage.setItem("webTokenError", ex.message);
+                navigate("/web-token-error");
+            }
+        }
+
         let storedJwtToken = localStorage.getItem("jwtToken");
+        console.log(storedJwtToken);
         if(storedJwtToken === null){
             navigate("/login");
-        }else{
-            setJwtToken(storedJwtToken);
+            return;
         }
-        let pilot = getTestPilotData();
-        setPilot(pilot);
-    }, [jwtToken, navigate]);
+        getPilotData(storedJwtToken);
+    }, [navigate]);
 
     //called from PrivatePilotFlightsComponent & StoryPopup. ShowStory actives/deactives the story popup display
     function activateStory(activated, storyChosen){
@@ -59,8 +69,8 @@ function PrivatePilotHomePage() {
                 <NavBar fixed={false}/>
                 {storyPopup}
                 <div className="private-pilot-homepage-content-container">
-                    <PrivatePilotFlights pilotFlightOffers={pilot.inactiveFlights} activateStory={activateStory}/>
-                    <PrivatePilotHangar pilotHangar={pilot.hangar.planes}/>
+                    <PrivatePilotFlights pilotFlightOffers={pilot.flights} activateStory={activateStory}/>
+                    <PrivatePilotHangar pilotHangar={pilot.planesOwned}/>
                     <PrivatePilotAccount />
                     <PrivatePilotStats />
                 </div>

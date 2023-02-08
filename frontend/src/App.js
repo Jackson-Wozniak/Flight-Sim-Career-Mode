@@ -7,6 +7,7 @@ import SignUpPage from './components/SignUpPage';
 import LoadingScreen from './components/LoadingScreen';
 import PrivatePilotHomePage from './components/private_pilot/PrivatePilotHomePage';
 import AirlineManagerHomePage from './components/airline_manager/AirlineManageHomePage';
+import WebTokenError from './components/WebTokenError';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
       <Route path="pilot-home" element={<PilotHomePage />} />
       <Route path="/private-pilot" element={<PrivatePilotHomePage />} />
       <Route path="/airline-manager" element={<AirlineManagerHomePage />} />
+      <Route path="/web-token-error" element={<WebTokenError />} />
     </Routes>
   );
 }

@@ -12,8 +12,8 @@ function PrivatePilotFlights(props) {
                 return  <div key={index} className="private-pilot-flight-column">
                             <div className="private-pilot-flight">
                                 <div className="private-pilot-flight-airport-info">
-                                    <p>{flight.departureAirport.name} ({flight.departureAirport.icaoCode})</p>
-                                    <p>{flight.departureAirport.country}, {flight.departureAirport.continent}</p>
+                                    <p>{flight.route.departure.name} ({flight.route.departure.icaoCode})</p>
+                                    <p>{flight.route.departure.country}, {flight.route.departure.continent}</p>
                                 </div>
                                 <div className="private-pilot-flight-info">
                                     <div className="airport-seperator">
@@ -21,9 +21,9 @@ function PrivatePilotFlights(props) {
                                         <hr />
                                     </div>
                                     <div>
-                                        <h4>{flight.timeToComplete} hours</h4>
-                                        <button onClick={() => props.activateStory(true, flight.story)}>See Story</button>
-                                        <h4>{numberFormatter.format(flight.distance)} mi</h4>
+                                        <h4>{flight.route.durationInHours} hours</h4>
+                                        <button onClick={() => props.activateStory(true, flight.flightStory.narrative)}>See Story</button>
+                                        <h4>{numberFormatter.format(flight.route.distanceInMiles)} mi</h4>
                                     </div>
                                     <div className="airport-seperator">
                                         <p className="airport-direction-identifier">Destination</p>
@@ -31,8 +31,8 @@ function PrivatePilotFlights(props) {
                                     </div>
                                 </div>
                                 <div className="private-pilot-flight-airport-info">
-                                    <p>{flight.destinationAirport.name} ({flight.destinationAirport.icaoCode})</p>
-                                    <p>{flight.destinationAirport.country}, {flight.destinationAirport.continent}</p>
+                                    <p>{flight.route.destination.name} ({flight.route.destination.icaoCode})</p>
+                                    <p>{flight.route.destination.country}, {flight.route.destination.continent}</p>
                                 </div>
                             </div>
                             {/* 
