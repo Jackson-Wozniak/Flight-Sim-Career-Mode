@@ -26,6 +26,14 @@
   </p>
 </div>
 
+## :books: Table of Contents
+
+<ol>
+    <li><a href="#Overview">About The Project</a></li>
+    <li><a href="#Paths">Pilot Career Paths</a></li>
+    <li><a href="#Technologies">Technologies</a></li>
+</ol>    
+
 <br/> 
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------- -->
 
@@ -35,6 +43,21 @@
   and buy new planes to unlock distant airports.
 * Users can also manage a virtual airline, where they will hire pilots, choose routes, and fly routes as a pilot, all while trying to stay 
   profitable and grow their airline
+
+<br/> 
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+## :man_pilot: Pilot Career Paths <a name="Paths"></a>
+
+### Private Pilot: Contracted Flights
+* Private Pilots complete contracted flights carrying varying types of cargo or passengers
+* Flights will appear on a board, where users can choose to assign the flight. Upon that flights completion, they will be rewarded based on the result of the flight,   as well the payout outlined by the flight info
+* Payouts are based on the type of cargo, distance traveled on the flight, reputation of the pilot, and amount of cargo being carried. Rare cargo, such as gold,
+  will offer a higher payout multiplier than common cargo
+* As pilots complete their flights, they will be given reputation points. This will be used to level up their private pilot license. Higher levels offer the pilot      better leverage in contract negotiations, meaning that they will notice a permanent boost in flight payouts which grows as they increase their level.  
+* Pilots can also choose to pursue achievements, which will reward either reputation points or money, depending on the achievement
+
+### Airline Manager: Coming Soon...
 
 <br/> 
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------- -->
