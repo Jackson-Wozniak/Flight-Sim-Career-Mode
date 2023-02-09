@@ -1,7 +1,7 @@
 package com.api.career_mode.career_paths.private_pilot.story.configuration;
 
 import com.api.career_mode.career_paths.private_pilot.story.service.CargoService;
-import com.api.career_mode.career_paths.private_pilot.story.properties.DefaultCargo;
+import com.api.career_mode.career_paths.private_pilot.story.cargo.DefaultCargo;
 import jakarta.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
@@ -17,7 +17,6 @@ public class CargoConfiguration {
     private final CargoService cargoService;
     private static final Logger logger = LoggerFactory.getLogger(CargoConfiguration.class);
 
-    @PostConstruct
     public void saveAllDefaultCargoOnStartup(){
         if(DefaultCargo.getAllDefaultCargo().size() != cargoService.findCargoRowCount()){
             logger.info("Saving Cargo");

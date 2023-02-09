@@ -1,5 +1,6 @@
 package com.api.career_mode.career_paths.private_pilot.story.entity;
 
+import com.api.career_mode.career_paths.private_pilot.story.cargo.CargoType;
 import com.api.career_mode.career_paths.private_pilot.story.utils.FlightStoryCalculator;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -15,9 +16,8 @@ public class FlightStory {
     @Embedded
     private Narrative narrative;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "cargo_type")
-    private Cargo cargo;
+    @Enumerated(EnumType.STRING)
+    private CargoType cargoType;
 
     @Column(name = "weight_of_cargo_pounds")
     private Double weightOfCargoInPounds;
@@ -27,7 +27,7 @@ public class FlightStory {
     
     public FlightStory(Narrative narrative, Cargo cargo, double cargoWeight, double flightDistance){
         this.narrative = narrative;
-        this.cargo = cargo;
+        this.cargoType = CargoType.mapCargoToType(cargo);
         this.weightOfCargoInPounds = cargoWeight;
         this.flightPayoutInUSD = FlightStoryCalculator.calculateFlightPayout(
                 cargo, cargoWeight, flightDistance);

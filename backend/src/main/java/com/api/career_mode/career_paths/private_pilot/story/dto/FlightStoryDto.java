@@ -1,6 +1,7 @@
 package com.api.career_mode.career_paths.private_pilot.story.dto;
 
 import com.api.career_mode.career_paths.private_pilot.entity.ContractedFlight;
+import com.api.career_mode.career_paths.private_pilot.story.cargo.CargoType;
 import com.api.career_mode.career_paths.private_pilot.story.utils.NarrativeDtoMapper;
 import com.api.career_mode.career_paths.private_pilot.story.entity.FlightStory;
 import lombok.Getter;
@@ -17,7 +18,7 @@ public class FlightStoryDto {
 
     public FlightStoryDto(FlightStory flightStory, ContractedFlight flight){
         this.narrative = NarrativeDtoMapper.mapNarrative(flightStory.getNarrative(), flight);
-        this.cargo = flightStory.getCargo().getCargoName();
+        this.cargo = CargoType.mapCargoTypeToObject(flightStory.getCargoType()).getCargoName();
         this.cargoWeightInPounds = flightStory.getWeightOfCargoInPounds();
         this.payoutInUSD = flightStory.getFlightPayoutInUSD();
     }

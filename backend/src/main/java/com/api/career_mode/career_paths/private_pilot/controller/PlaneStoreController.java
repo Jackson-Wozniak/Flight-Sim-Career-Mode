@@ -1,4 +1,4 @@
-package com.api.career_mode.flight_components.controller;
+package com.api.career_mode.career_paths.private_pilot.controller;
 
 import com.api.career_mode.career_paths.private_pilot.entity.PrivatePilot;
 import com.api.career_mode.flight_components.entity.Plane;

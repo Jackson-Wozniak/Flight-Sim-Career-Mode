@@ -1,4 +1,4 @@
-package com.api.career_mode.career_paths.private_pilot.story.properties;
+package com.api.career_mode.career_paths.private_pilot.story.cargo;
 
 import com.api.career_mode.career_paths.private_pilot.story.entity.Cargo;
 

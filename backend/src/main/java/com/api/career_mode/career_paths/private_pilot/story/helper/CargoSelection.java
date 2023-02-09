@@ -1,7 +1,7 @@
 package com.api.career_mode.career_paths.private_pilot.story.helper;
 
 import com.api.career_mode.career_paths.private_pilot.story.entity.Cargo;
-import com.api.career_mode.career_paths.private_pilot.story.properties.DefaultCargo;
+import com.api.career_mode.career_paths.private_pilot.story.cargo.DefaultCargo;
 import com.api.career_mode.career_paths.private_pilot.story.service.CargoService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
