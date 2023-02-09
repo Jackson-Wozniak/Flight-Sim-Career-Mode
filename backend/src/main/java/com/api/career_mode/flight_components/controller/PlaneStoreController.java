@@ -1,6 +1,6 @@
 package com.api.career_mode.flight_components.controller;
 
-import com.api.career_mode.career_paths.private_pilot.PrivatePilot;
+import com.api.career_mode.career_paths.private_pilot.entity.PrivatePilot;
 import com.api.career_mode.flight_components.entity.Plane;
 import com.api.career_mode.flight_components.entity.PlaneOwned;
 import com.api.career_mode.flight_components.service.PlaneOwnedService;

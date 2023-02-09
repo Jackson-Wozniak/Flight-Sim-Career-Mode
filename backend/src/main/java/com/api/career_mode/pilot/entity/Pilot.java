@@ -1,6 +1,6 @@
 package com.api.career_mode.pilot.entity;
 
-import com.api.career_mode.career_paths.private_pilot.PrivatePilot;
+import com.api.career_mode.career_paths.private_pilot.entity.PrivatePilot;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
