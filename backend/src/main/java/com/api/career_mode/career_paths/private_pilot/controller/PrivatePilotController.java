@@ -124,20 +124,4 @@ public class PrivatePilotController {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
-
-    //Method used to test the time of api requests for creating flights
-    @RequestMapping(value = "test")
-    public String test(@RequestParam("token") String token){
-        PrivatePilot pilot = registrationService.confirmToken(token).getPrivatePilot();
-        Instant start = Instant.now();
-        List<ContractedFlight> flights = new ArrayList<>();
-        for(int i = 0; i < 10; i++){
-            flights.add(contractedFlightGenerator.generateFlight(pilot));
-        }
-        Instant end = Instant.now();
-        List<ContractedFlightDTO> flightDtos = flights.stream().map(ContractedFlightDTO::new).toList();
-        Instant finalTime = Instant.now();
-        return "Start to finish: " + (Duration.between(start, finalTime).toMillis() / 1000.00) + ". " +
-                "End to final : " + (Duration.between(end, finalTime).toMillis() / 1000.00);
-    }
 }
