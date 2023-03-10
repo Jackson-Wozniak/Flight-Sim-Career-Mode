@@ -146,3 +146,21 @@ export async function getPrivatePilotByToken(token){
         return pilot;
     }
 }
+
+export async function assignActiveFlight(token, flightIndex){
+    const response = await fetch("http://localhost:8080/api/v1/pilot/private/flights/active?token=" 
+        + token + "&flightIndex=" + flightIndex, {
+            method : "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+
+    if(response.status !== 200){
+        let err = response.text();
+        console.log(err);
+        throw new Error(err);
+    }
+    let text = await response.text();
+    console.log(text);
+}

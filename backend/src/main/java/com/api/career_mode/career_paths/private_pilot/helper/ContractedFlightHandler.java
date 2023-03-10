@@ -39,6 +39,7 @@ public class ContractedFlightHandler {
     private void handleCompletedFlight(ContractedFlight flight, PrivatePilot pilot){
         pilot.addToBalance(flight.getFlightStory().getFlightPayoutInUSD());
         pilot.increaseReputation(PrivatePilotUtils.calculateReputationEarned(flight.getFlightStory()));
+        pilot.setCurrentFlightActivated(false);
         privatePilotService.updatePilot(pilot);
         contractedFlightService.deletePrivatePilotFlight(flight);
     }

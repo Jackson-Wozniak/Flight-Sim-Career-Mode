@@ -34,4 +34,12 @@ public class PrivatePilotDTO {
                 .map(PlaneDto::new)
                 .collect(Collectors.toList());
     }
+
+    //iterate through flights to check if any are active
+    public boolean isActiveFlight(){
+        for(ContractedFlightDTO flight : this.flights){
+            if(flight.isCurrentFlight()) return true;
+        }
+        return false;
+    }
 }

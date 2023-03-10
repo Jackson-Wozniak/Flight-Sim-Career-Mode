@@ -33,7 +33,6 @@ function PrivatePilotHomePage() {
         }
 
         let storedJwtToken = localStorage.getItem("jwtToken");
-        console.log(storedJwtToken);
         if(storedJwtToken === null){
             navigate("/login");
             return;
@@ -49,6 +48,15 @@ function PrivatePilotHomePage() {
         setShowStory(activated);
     }
 
+    function findActiveFlight(pilot){
+        for(let i = 0; i < pilot.flights.length; i++){
+            if(pilot.flights[i].isCurrentFlight){
+                return pilot.flights[i];
+            }
+        }
+        return pilot.flights[0];
+    }
+
     //if user presses button in PrivatePilotFlights component to show story, display the given story in a centered div
     let storyPopup;
     if(showStory){
@@ -57,9 +65,10 @@ function PrivatePilotHomePage() {
         storyPopup = <div></div>
     }
 
-    if(pilot !== null && pilot.isActiveFlight){
+    if(pilot !== null && pilot.currentFlightActivated){
+        let activeFlight = findActiveFlight(pilot);
         return (
-            <AssignedFlightDisplay pilot={pilot}/>
+            <AssignedFlightDisplay flight={activeFlight}/>
         );
     }
 

@@ -60,6 +60,10 @@ public class PilotController {
 
             return ResponseEntity.ok(confirmationToken.getToken());
         }catch (Exception ex){
+            //give more specific error message
+            if(ex.getMessage().equalsIgnoreCase("Bad credentials")){
+                return new ResponseEntity<>("Incorrect Password", HttpStatus.BAD_REQUEST);
+            }
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }

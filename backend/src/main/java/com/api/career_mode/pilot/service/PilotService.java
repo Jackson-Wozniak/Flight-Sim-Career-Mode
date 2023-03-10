@@ -25,7 +25,7 @@ public class PilotService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return pilotRepository.findById(username).orElseThrow(
-                () -> new RuntimeException("Cannot find pilot!"));
+                () -> new RuntimeException("No pilot exists with that username"));
     }
 
     public String signUpPilot(Pilot pilot) {

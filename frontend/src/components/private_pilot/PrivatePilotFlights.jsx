@@ -1,7 +1,13 @@
 import '../../styles/private_pilot/PrivatePilotFlights.css'
+import { assignActiveFlight } from '../../utils/PrivatePilotApi';
 
 function PrivatePilotFlights(props) {
     const numberFormatter = new Intl.NumberFormat();
+
+    function assignFlightAsActive(index){
+        const jwtToken = localStorage.getItem("jwtToken");
+        assignActiveFlight(jwtToken, index);
+    }
 
     return (  
         <div className="private-pilot-flights-container">
@@ -40,7 +46,7 @@ function PrivatePilotFlights(props) {
                                 after pressing assign flight button, set the pilot's isActiveFlight to true,
                                 call api with flight chosen, and update pilot object to reflect current flight
                             */}
-                            <button className="assign-private-flight">Accept Offer</button>
+                            <button className="assign-private-flight" onClick={() => assignFlightAsActive(flight.flightIndex)}>Accept Offer</button>
                             <hr className="flight-seperator"/>
                         </div>
             })}

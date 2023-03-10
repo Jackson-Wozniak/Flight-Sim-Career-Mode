@@ -11,6 +11,7 @@ import com.api.career_mode.career_paths.private_pilot.service.ContractedFlightSe
 import com.api.career_mode.pilot.entity.Pilot;
 import com.api.career_mode.pilot.service.RegistrationService;
 import lombok.AllArgsConstructor;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -73,13 +74,14 @@ public class PrivatePilotController {
     }
 
     @PutMapping(value = "/flights/active")
-    public void assignActiveFlight(@RequestParam("token") String token,
+    public ResponseEntity<String> assignActiveFlight(@RequestParam("token") String token,
                                    @RequestParam("flightIndex") long flightIndex){
         try{
             Pilot pilot = registrationService.confirmToken(token);
             contractedFlightService.assignActiveFlightToPilot(pilot.getPrivatePilot(), flightIndex);
+            return ResponseEntity.ok("Flight Assigned");
         }catch (Exception ex){
-            ex.printStackTrace();
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 

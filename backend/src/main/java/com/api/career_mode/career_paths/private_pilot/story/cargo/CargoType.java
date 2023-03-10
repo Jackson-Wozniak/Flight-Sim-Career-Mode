@@ -5,7 +5,8 @@ import com.api.career_mode.career_paths.private_pilot.story.entity.Cargo;
 /*
 Cargo for flights is saved in the database as an Enum String.
 When querying for the given flight, it uses the methods in this class to map to a default cargo object.
-This approach makes it easier to update cargo values, and saves the space of saving cargo in the DB
+This approach makes it easier to update cargo values without to validate matching values
+    such as multipliers and amount of text file lines
  */
 public enum CargoType {
     GOLD,
