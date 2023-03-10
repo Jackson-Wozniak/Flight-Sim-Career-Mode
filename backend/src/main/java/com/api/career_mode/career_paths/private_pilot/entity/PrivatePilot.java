@@ -42,9 +42,6 @@ public class PrivatePilot {
     @OneToMany(mappedBy = "privatePilot")
     private List<ContractedFlight> flights;
 
-    @Column(name = "current_flight_activated")
-    private Boolean currentFlightActivated;
-
     @OneToMany(mappedBy = "privatePilot")
     private List<PlaneOwned> planesOwned;
 
@@ -57,7 +54,6 @@ public class PrivatePilot {
         this.level = 1;
         this.reputationToNextLevel = 100;
         this.balance = 0.0;
-        this.currentFlightActivated = false;
         this.flightsAssigned = 0L;
     }
 

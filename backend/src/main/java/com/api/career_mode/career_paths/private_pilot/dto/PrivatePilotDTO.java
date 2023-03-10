@@ -28,7 +28,7 @@ public class PrivatePilotDTO {
         this.reputationToNextLevel = pilot.getReputationToNextLevel();
         this.balance = pilot.getBalance();
         this.flights = pilot.getFlights().stream().map(ContractedFlightDTO::new).collect(Collectors.toList());
-        this.currentFlightActivated = pilot.getCurrentFlightActivated();
+        this.currentFlightActivated = this.isActiveFlight();
         this.planesOwned = pilot.getPlanesOwned().stream()
                 .map(PlaneOwned::getPlane)
                 .map(PlaneDto::new)

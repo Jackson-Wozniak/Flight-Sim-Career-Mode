@@ -38,7 +38,6 @@ public class ContractedFlightService {
                         () -> new FlightQueryException("Cannot find flight with given index"));
         flight.setIsCurrentFlight(true);
         contractedFlightRepository.save(flight);
-        pilot.setCurrentFlightActivated(true);
         privatePilotService.updatePilot(pilot);
     }
 
